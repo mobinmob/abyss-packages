@@ -1,0 +1,30 @@
+# Template file for 'smartgit'
+pkgname=smartgit
+version=20.1.5
+revision=1
+_tarver=20_1_5
+archs="x86_64"
+wrksrc=smartgit
+depends="git"
+short_desc="Graphical Git client"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="GPL-3.0-or-later"
+homepage="https://www.syntevo.com/smartgit/"
+changelog="https://www.syntevo.com/smartgit/changelog.txt"
+distfiles="https://www.syntevo.com/downloads/smartgit/smartgit-linux-${_tarver}.tar.gz"
+checksum=c53760ef0db9cacaf32d783116fb1934b8b1d2f378762c36359a28dddef2ae89
+nopie=yes
+
+do_install() {
+	# Copy files
+	vmkdir opt/smartgit
+	vcopy "*" opt/smartgit/
+	# Link script in $PATH
+	vmkdir usr/bin
+	ln -s /opt/smartgit/bin/smartgit.sh "${DESTDIR}/usr/bin/smartgit"
+	# Install icons and .desktop files
+	vmkdir usr/share/icons
+	ln -s /opt/smartgit/smartgit-256.png "${DESTDIR}/usr/share/icons/smartgit.png"
+	vmkdir usr/share/applications
+	cp "${FILESDIR}/SmartGit.desktop" "${DESTDIR}/usr/share/applications/"
+}

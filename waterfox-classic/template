@@ -1,0 +1,28 @@
+# Template file for 'waterfox-classic'
+pkgname=waterfox-classic
+version=2020.09
+revision=1
+archs="x86_64"
+wrksrc=waterfox-classic
+short_desc="Indie web browser, classic edition"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="MPL-2.0"
+homepage="https://www.waterfox.net/"
+distfiles="https://cdn.waterfox.net/releases/linux64/installer/waterfox-classic-${version}.en-US.linux-x86_64.tar.bz2"
+checksum=175974432a381339db22843fa7b3df05c888891544ad6e7d236694ef596cc51b
+nopie=yes
+
+
+do_install() {
+	vmkdir opt/waterfox-classic
+	vcopy "*" opt/waterfox-classic
+	# Create symlink in path
+	vmkdir usr/bin
+	ln -s /opt/waterfox-classic/waterfox "${DESTDIR}/usr/bin/waterfox-classic"
+	# Copy icon and .desktop file
+	vmkdir usr/share/icons
+	cp "${DESTDIR}/opt/waterfox-classic/browser/chrome/icons/default/default256.png" \
+"${DESTDIR}/usr/share/icons/waterfox-classic.png"
+	vmkdir usr/share/applications
+	cp "${FILESDIR}/waterfox-classic.desktop" "${DESTDIR}/usr/share/applications/"
+}

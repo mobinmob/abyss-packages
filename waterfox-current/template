@@ -1,0 +1,28 @@
+# Template file for 'waterfox-current'
+pkgname=waterfox-current
+version=2020.09
+revision=1
+archs="x86_64"
+wrksrc=waterfox
+short_desc="Indie web browser, classic edition"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="MPL-2.0"
+homepage="https://www.waterfox.net/"
+distfiles="https://cdn.waterfox.net/releases/linux64/installer/waterfox-current-${version}.en-US.linux-x86_64.tar.bz2"
+checksum=74e7e5ebd8e2b9e466e63b70369deb70b1854c5abfd7c9d6bd6fe9fbb77de87a
+nopie=yes
+
+
+do_install() {
+	vmkdir opt/waterfox-current
+	vcopy "*" opt/waterfox-current
+	# Create symlink in path
+	vmkdir usr/bin
+	ln -s /opt/waterfox-current/waterfox "${DESTDIR}/usr/bin/waterfox-current"
+	# Copy icon and .desktop file
+	vmkdir usr/share/icons
+	cp "${DESTDIR}/opt/waterfox-current/browser/chrome/icons/default/default128.png" \
+"${DESTDIR}/usr/share/icons/waterfox-current.png"
+	vmkdir usr/share/applications
+	cp "${FILESDIR}/waterfox-current.desktop" "${DESTDIR}/usr/share/applications/"
+}

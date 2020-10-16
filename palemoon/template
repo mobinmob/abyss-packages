@@ -1,0 +1,29 @@
+# Template file for 'palemoon'
+pkgname=palemoon
+version=28.14.2
+revision=1
+archs="x86_64"
+wrksrc=palemoon
+short_desc="Open Source, Goanna-based web browser"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="MPL-2.0"
+homepage="https://www.palemoon.org/"
+changelog="https://www.palemoon.org/releasenotes.shtml"
+distfiles="https://linux.palemoon.org/datastore/release/palemoon-${version}.linux-x86_64.tar.xz"
+checksum=6fdc4a02da13d58368fc363058dce6111c029b2f153055a0fb1188d9ed5fef4c
+nopie=yes
+
+do_install() {
+	vmkdir opt/palemoon
+	vcopy "*" opt/palemoon/
+	# Create symlink in path
+	vmkdir usr/bin
+	ln -s /opt/palemoon/palemoon "${DESTDIR}/usr/bin/palemoon"
+	 # Copy icon and .desktop file
+	vmkdir usr/share/icons
+	cp "${DESTDIR}/opt/palemoon/browser/icons/mozicon128.png" \
+"${DESTDIR}/usr/share/icons/palemoon.png"
+	vmkdir usr/share/applications
+	cp "${FILESDIR}/palemoon.desktop" "${DESTDIR}/usr/share/applications/"
+
+}

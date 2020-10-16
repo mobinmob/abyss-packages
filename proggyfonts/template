@@ -1,0 +1,33 @@
+# Template file for 'proggyfonts'
+pkgname=proggyfonts
+version=1.1.5
+revision=1
+wrksrc="proggyfonts-${version}"
+depends="font-util"
+short_desc="Monospaced fonts for programming"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="MIT, others"
+homepage="http://upperbounds.net/index.php?menu=about"
+distfiles="https://github.com/bluescan/proggyfonts/archive/v${version}.tar.gz"
+checksum=bbfb44986829519795a0840929b934135ac40ed91790f0a03067c5fbce1a8c24
+font_dirs="/usr/share/fonts/OTF"
+font_dirs="/usr/share/fonts/TTF"
+
+do_install() {
+	vmkdir usr/share/fonts/OTF
+	vmkdir usr/share/fonts/TTF
+	for i in ProggyCrossed ProggyDotted ProggyVector
+	 do
+		cp "$i/*.otf" "${DESTDIR}/usr/share/fonts/OTF/"
+	done
+	 for i in ProggyCrossed ProggyDotted ProggyOriginal ProggyVector
+	do
+		cp "$i/*.ttf" "${DESTDIR}/usr/share/fonts/TTF/"
+	done
+	vlicense LICENSE
+	vmkdir usr/share/licenses/proggyfonts
+	for i in ProggyCrossed ProggyDotted ProggyVector
+	do
+		cp "$i/*.txt" "${DESTDIR}/usr/share/licenses/proggyfonts/"
+	done
+}

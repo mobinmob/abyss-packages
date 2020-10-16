@@ -1,0 +1,22 @@
+# Template file for 'jetbrains-toolbox'
+pkgname=jetbrains-toolbox
+version=1.18.7455
+revision=1
+archs="x86_64"
+short_desc="Manage your JetBrains tools easily"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="custom:proprietary" #avoid vlicense
+homepage="https://www.jetbrains.com/toolbox-app/"
+distfiles="https://download.jetbrains.com/toolbox/jetbrains-toolbox-${version}.tar.gz"
+checksum=5d8acef010816cec5082e37cf07607c59cf1534d3fd7d9546d5cbb55149cdd54
+nopie=yes
+
+
+do_install() {
+	vmkdir usr/bin
+	vcopy "*" usr/bin
+	vmkdir usr/share/icons
+	cp "${FILESDIR}/jetbrains-toolbox.png" "${DESTDIR}/usr/share/icons/"
+	vmkdir usr/share/applications
+	cp "${FILESDIR}/jetbrains-toolbox.desktop" "${DESTDIR}/usr/share/applications"
+}

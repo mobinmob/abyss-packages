@@ -1,0 +1,23 @@
+# Template file for 'thunderbird-bin'
+pkgname=thunderbird-bin
+version=78.3.2
+revision=1
+archs="x86_64"
+create_wrksrc=yes
+short_desc="Standalone Mail/News reader"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="MPL-2.0, GPL-2.0-or-later, LGPL-2.1-or-later"
+homepage="https://www.thunderbird.net/"
+distfiles="${MOZILLA_SITE}/thunderbird/releases/${version}/linux-x86_64/en-US/thunderbird-${version}.tar.bz2"
+checksum=09e237e75ea4b7c66f249344bd4774c69b9e271176280be3efd8b037699eaa3f
+nopie=yes
+
+do_install() {
+	vmkdir opt
+	vcopy * opt/
+	vmkdir usr/share/applications
+	cp ${FILESDIR}/thunderbird-bin.desktop ${DESTDIR}/usr/share/applications/
+	# Create a symlink in /usr/bin/
+	vmkdir usr/bin
+	ln -s /opt/thunderbird/thunderbird ${DESTDIR}/usr/bin/thunderbird-bin
+}

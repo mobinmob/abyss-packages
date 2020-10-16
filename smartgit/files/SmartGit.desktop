@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=SmartGit
+Keywords=git
+Comment=Git-Client
+Type=Application
+Categories=Development;RevisionControl
+Terminal=false
+StartupWMClass=SmartGit
+Exec=smartgit %u
+MimeType=x-scheme-handler/git;x-scheme-handler/smartgit;
+Icon=smartgit.png
