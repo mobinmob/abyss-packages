@@ -1,0 +1,37 @@
+# Template file for 'soulseekqt'
+# Heavily based on the AUR pkgbuild
+pkgname=soulseekqt
+version=2018.1.30
+revision=1
+archs="x86_64"
+create_wrksrc=yes
+short_desc="Ad-free, spyware free, just plain free file sharing network"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="custom:proprietary" #no vlicense
+homepage="https://www.slsknet.org/news/"
+changelog="https://www.slsknet.org/news/changelog"
+_upstr_version=2018-1-30
+distfiles="https://www.slsknet.org/SoulseekQt/Linux/SoulseekQt-${_upstr_version}-64bit-appimage.tgz"
+checksum=86938731dfd4303ab62aceac525afdef09f16eba78a8c2560a92a890bb572c34
+nostrip=yes
+
+do_build() {
+	# Extract appimage contents
+	./"SoulseekQt-${_upstr_version}-64bit.AppImage" --appimage-extract
+	# Compile mock selinux lib
+	cp "${FILESDIR}/selinux-mock.c" "${wrksrc}"
+	gcc -s -shared -o libselinux.so.1 -Wl,-soname,libselinux.so.1 selinux-mock.c
+}
+
+do_install() {
+	vmkdir opt/soulseekqt/
+	cp -r squashfs-root/* "${DESTDIR}/opt/soulseekqt/"
+	vbin "${FILESDIR}/soulseekqt.sh" soulseekqt
+	vinstall libselinux.so.1 755 opt/soulseekqt/lib/
+	vmkdir usr/share/applications
+	cp "${FILESDIR}"/soulseekqt.desktop "${DESTDIR}"/usr/share/applications/
+	vmkdir usr/share/icons
+	cp squashfs-root/soulseek.png "${DESTDIR}"/usr/share/icons/
+	rm "${DESTDIR}"/opt/soulseekqt/lib/libfreetype.so.6
+	rm -rf "${DESTDIR}"/opt/soulseekqt/{AppRun,default.desktop,soulseek.png,*.AppImage}
+}
