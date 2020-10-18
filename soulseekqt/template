@@ -1,7 +1,7 @@
 # Template file for 'soulseekqt'
 # Heavily based on the AUR pkgbuild
 pkgname=soulseekqt
-version=2018.1.30
+version=20180130
 revision=1
 archs="x86_64"
 create_wrksrc=yes
