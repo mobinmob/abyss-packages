@@ -1,0 +1,26 @@
+# Template file for 'r5u87x'
+pkgname=r5u87x
+version=0.2.2
+revision=2
+archs="x86_64"
+wrksrc="${pkgname}"
+makedepends="libusb-compat-devel libusb-compat-devel-32bit glib-devel"
+depends="guile libusb-compat-32bit"
+short_desc="Userspace modules for Ricoh R5U87x OEM camera"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="GPL-2-o custom:proprietary" #no vlisence included firmware is freely redistributable
+homepage="https://gitea.artixlinux.org/linuxer/r5u87x"
+distfiles="https://gitea.artixlinux.org/linuxer/r5u87x/archive/${version}.tar.gz"
+checksum=d87dc965f6fcb2a1c849ff309d8bc4e4669b9b37d73ba875af35f580c5e32036
+nopie=yes
+
+do_build() {
+	sed -i 's| --reload||' contrib/90-r5u87x-loader.rules.in
+	make "UCODE_PATH=/usr/lib/r5u87x/ucode/r5u87x-%vid%-%pid%.fw"
+} 
+
+do_install() {
+	make DESTDIR="${DESTDIR}" firmdir="/lib/r5u87x/ucode/" sbindir="/bin" UDEV_INSTALL="/usr/lib/udev/rules.d" install
+	vbin recode-fw.scm
+	vbin ricoh-webcam-loader
+}
