@@ -1,0 +1,22 @@
+# Template file for 'nano-syntax-highlighting'
+pkgname=nano-syntax-highlighting
+version=2020.10.10
+revision=1
+short_desc="Improved Nano Syntax Highlighting Files"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/scopatz/nanorc"
+distfiles="https://github.com/scopatz/nanorc/releases/download/${version}/nanorc-${version}.tar.gz"
+checksum=
+
+do_build() {
+	cp "${FILESDIR}"/bash.nanorc "${wrksrc}"/
+	echo "include "~/.nano/zsh.nanorc"" nanorc
+}
+
+do_install() {
+	vmkdir usr/share/nanorc
+	cp *.nanorc "${DESTDIR}"/usr/share/nanorc/
+	cp nanorc "${DESTDIR}"/usr/share/nanorc/
+	vdoc readme.md
+}
