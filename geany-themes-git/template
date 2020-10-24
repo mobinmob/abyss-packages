@@ -1,0 +1,18 @@
+# Template file for 'geany-themes-git'
+pkgname=geany-themes-git
+version=0.0.20200704
+revision=1
+_commit_hash=0f29c77e8c596900b9b8cf552498bdb317449cae
+wrksrc="geany-themes-${_commit_hash}"
+short_desc="Collection of colour schemes for Geany"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="custom:many"
+homepage="https://github.com/geany/geany-themes"
+distfiles="https://github.com/geany/geany-themes/archive/${_commit_hash}.tar.gz"
+checksum=b2d8012df8bfe83430b5e60d4afbfdad0222cded8ac82ad6c333c2c2c904d715
+
+do_install() {
+	vmkdir usr/share/geany/colorschemes
+	vcopy colorschemes/*.conf usr/share/geany/colorschemes
+	vlicense COPYING
+}
