@@ -1,0 +1,18 @@
+# Template file for 'base16-geany-git'
+pkgname=base16-geany-git
+version=0.0.20161113
+revision=1
+_commit_hash=40fc74c52ddec7efddbeff8a9b7b25652e7b45f6
+wrksrc="base16-geany-${_commit_hash}"
+short_desc="Base16 colorschemes for Geany"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="MIT"
+homepage="https://github.com/codebrainz/geany-themes"
+distfiles="https://github.com/RobLoach/base16-geany/archive/${_commit_hash}.tar.gz"
+checksum=a9470c45e304ae62bc71cdafe39ecc488df78872130424bf7739dc3ba0e9aac9
+
+do_install() {
+	vmkdir usr/share/geany/colorschemes
+	vcopy base16-*.conf usr/share/geany/colorschemes
+	vlicense LICENSE.md
+}
