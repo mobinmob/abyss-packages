@@ -16,7 +16,7 @@ if [ "$XBPS_TARGET_MACHINE" = "x86_64" ]; then
 	checksum=1b18ea29ad12642688227cdca51738369513626070f2841c22d2fb35c38eadb0
 else
 	distfiles="https://www.freeoffice.com/download.php?filename=https://www.softmaker.net/down/softmaker-freeoffice-${version}-i386.tgz"
-	checksum=badbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadbadb
+	checksum=ef1a9eb08174e8c6be40f84f26f4ae228b344cdfc3a500c03123b09fbd7c67fd
 fi
 
 do_install() {
