@@ -1,15 +1,15 @@
 # Template file for 'waterfox-current'
 pkgname=waterfox-current
-version=2020.09
+version=2020.10
 revision=1
 archs="x86_64"
 wrksrc=waterfox
-short_desc="Indie web browser, classic edition"
+short_desc="Indie web browser, current edition"
 maintainer="mobinmob <mobinmob@disroot.org>"
 license="MPL-2.0"
 homepage="https://www.waterfox.net/"
 distfiles="https://cdn.waterfox.net/releases/linux64/installer/waterfox-current-${version}.en-US.linux-x86_64.tar.bz2"
-checksum=74e7e5ebd8e2b9e466e63b70369deb70b1854c5abfd7c9d6bd6fe9fbb77de87a
+checksum=1d96f2079f736c1e3d7cc850e0e9ed8973107b29d39faa76b0d1d20065926115
 nopie=yes
 
 

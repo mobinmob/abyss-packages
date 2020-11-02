@@ -8,6 +8,7 @@ short_desc="Standalone Mail/News reader"
 maintainer="mobinmob <mobinmob@disroot.org>"
 license="MPL-2.0, GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://www.thunderbird.net/"
+changelog="https://www.thunderbird.net/en-US/thunderbird/78.4.0/releasenotes/"
 distfiles="${MOZILLA_SITE}/thunderbird/releases/${version}/linux-x86_64/en-US/thunderbird-${version}.tar.bz2"
 checksum=24780daa2b17799f263a6c16b770b0e6710d14f7f1f502f4868fe48d81ca8e48
 nopie=yes
