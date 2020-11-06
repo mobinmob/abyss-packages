@@ -1,0 +1,19 @@
+# Template file for 'font-mgopen-ttf'
+pkgname=font-mgopen-ttf
+version=1.1
+revision=1
+wrksrc="fonts-mgopen-${version}"
+depends="font-util"
+short_desc="MgOpen typefaces for viewing texts in Greek"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="custom:mgopen_license"
+homepage="https://web.archive.org/web/20120409173416/http://www.zvr.gr/typo/mgopen/index"
+distfiles="${DEBIAN_SITE}/main/f/fonts-mgopen/fonts-mgopen_${version}.orig.tar.bz2"
+checksum=c612a978a3c0c0dc469d1eb9364b35afad5dbc7cb3fa2523bc4fad6708474cb4
+font_dirs="/usr/share/fonts/TTF"
+
+do_install() {
+	vmkdir usr/share/fonts/TTF
+	vcopy TTFs/*.ttf usr/share/fonts/TTF/
+	vlicense "${FILESDIR}/copyright"
+}
