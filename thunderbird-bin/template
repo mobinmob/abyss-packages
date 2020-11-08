@@ -1,6 +1,6 @@
 # Template file for 'thunderbird-bin'
 pkgname=thunderbird-bin
-version=78.4.0
+version=78.4.1
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -8,9 +8,8 @@ short_desc="Standalone Mail/News reader"
 maintainer="mobinmob <mobinmob@disroot.org>"
 license="MPL-2.0, GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://www.thunderbird.net/"
-changelog="https://www.thunderbird.net/en-US/thunderbird/78.4.0/releasenotes/"
 distfiles="${MOZILLA_SITE}/thunderbird/releases/${version}/linux-x86_64/en-US/thunderbird-${version}.tar.bz2"
-checksum=24780daa2b17799f263a6c16b770b0e6710d14f7f1f502f4868fe48d81ca8e48
+checksum=a152c3b8c6ad4ba3a92a8a1f909b99599d8c3ded62b57e9721fb333b47f6509d
 nopie=yes
 
 do_install() {
