@@ -1,7 +1,7 @@
 # Template file for 'softmaker-freeoffice-2018'
 # Heavily based on the AUR (PKGBUILD+extra files)
 pkgname=softmaker-freeoffice-2018
-version=978
+version=980
 revision=1
 archs="i686 x86_64"
 create_wrksrc=yes
@@ -13,10 +13,10 @@ nopie=yes
 
 if [ "$XBPS_TARGET_MACHINE" = "x86_64" ]; then
 	distfiles="https://www.softmaker.net/down/softmaker-freeoffice-${version}-amd64.tgz"
-	checksum=1b18ea29ad12642688227cdca51738369513626070f2841c22d2fb35c38eadb0
+	checksum=@880e051b71201a7ef2641fb94f37e4b2d6fb98141cafd53adb7d44464b193586
 else
 	distfiles="https://www.freeoffice.com/download.php?filename=https://www.softmaker.net/down/softmaker-freeoffice-${version}-i386.tgz"
-	checksum=ef1a9eb08174e8c6be40f84f26f4ae228b344cdfc3a500c03123b09fbd7c67fd
+	checksum=@88ad10595203d5a713acafb9a74c11c884e7cbeff004a2dca9cddec59174939b
 fi
 
 do_install() {
