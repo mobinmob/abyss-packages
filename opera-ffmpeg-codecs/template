@@ -1,7 +1,7 @@
 # Template file for 'opera-ffmpeg-codecs'
 # This is just a repack of the archlinux package (community repo)
 pkgname=opera-ffmpeg-codecs
-version=86.0.4240.111
+version=86.0.4240.198
 revision=1
 archs="x86_64"
 hostmakedepends="zstd"
@@ -10,7 +10,7 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="LGPL-2.1-or-later"
 homepage="https://www.archlinux.org/packages/community/x86_64/opera-ffmpeg-codecs/"
 distfiles="https://mirror.bethselamin.de/community/os/x86_64/opera-ffmpeg-codecs-${version}-1-x86_64.pkg.tar.zst"
-checksum=5a99b4462040a5d4093e6be46794579d6d1dc0a0c43c5a7c56278151fea3f87c
+checksum=2452e717a55630e0770c9dd0f7b13f051e1034b380b78fff9284708928f65a70
 
 do_extract() {
 	bsdtar -xf "${XBPS_SRCDISTDIR}/${pkgname}-${version}/${pkgname}-${version}-1-x86_64.pkg.tar.zst" -C "${wrksrc}"
