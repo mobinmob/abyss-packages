@@ -1,6 +1,6 @@
 # Template file for 'jetbrains-toolbox'
 pkgname=jetbrains-toolbox
-version=1.18.7455
+version=1.18.7609
 revision=1
 archs="x86_64"
 short_desc="Manage your JetBrains tools easily"
@@ -8,7 +8,7 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="custom:proprietary" #avoid vlicense
 homepage="https://www.jetbrains.com/toolbox-app/"
 distfiles="https://download.jetbrains.com/toolbox/jetbrains-toolbox-${version}.tar.gz"
-checksum=5d8acef010816cec5082e37cf07607c59cf1534d3fd7d9546d5cbb55149cdd54
+checksum=f4eae649a88baec0c4b4f7db84fa290ebcd6151aef8856ab3af42b97add40d10
 nopie=yes
 
 
