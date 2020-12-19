@@ -1,0 +1,22 @@
+# Template file for 'teamviewer'
+pkgname=teamviewer
+version=15.13.6
+revision=1
+archs="x86_64"
+create_wrksrc=yes
+hostmakedepends="rpmextract"
+short_desc="Teamviewer remote desktop tool"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="custom:proprietary" #no vlicense
+homepage="https://www.teamviewer.com/"
+distfiles="https://dl.teamviewer.com/download/linux/version_15x/teamviewer_${version}.x86_64.rpm"
+checksum=8c28ed482e3e69d5faf93ab0934f9cd9132c7ec82d1d9ea2ab5290ac1f97e15d
+nopie=yes
+
+pre_install() {
+	rm etc/yum.repos.d/teamviewer.repo
+}
+
+do_install() {
+	vcopy * /
+}
