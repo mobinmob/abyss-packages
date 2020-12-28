@@ -1,6 +1,6 @@
 # Template file for 'waterfox-classic'
 pkgname=waterfox-classic
-version=2020.10
+version=2020.12
 revision=1
 archs="x86_64"
 wrksrc=waterfox-classic
@@ -9,7 +9,7 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="MPL-2.0"
 homepage="https://www.waterfox.net/"
 distfiles="https://cdn.waterfox.net/releases/linux64/installer/waterfox-classic-${version}.en-US.linux-x86_64.tar.bz2"
-checksum=41e447d3553a5bab54e3fdeb500f6f7877c5f8083284aaf62b655b140c65d04e
+checksum=f710035e63e596b0b9a0359788b93f08bbd77716cc7a1934969c460edac2eee7
 nopie=yes
 
 
