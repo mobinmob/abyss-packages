@@ -1,6 +1,6 @@
 # Template file for 'font-JetBrainsMono'
 pkgname=font-JetBrainsMono
-version=2.0001
+version=2.221
 revision=1
 wrksrc="JetBrainsMono-${version}"
 create_wrksrc=yes
@@ -9,12 +9,12 @@ short_desc="Typeface for developers by JetBrain"
 maintainer="mobinmob <mobinmob@disroot.org>"
 license="Apache-2.0"
 homepage="https://www.jetbrains.com/lp/mono/"
-distfiles="https://download.jetbrains.com/fonts/JetBrainsMono-2.001.zip"
-checksum=f877b601e737155a14599bab8af6a02e565e938d92dd5dc98cd98c62e7986d64
+changelog="https://github.com/JetBrains/JetBrainsMono/releases/latest"
+distfiles="https://download.jetbrains.com/fonts/JetBrainsMono-${version}.zip"
+checksum=2fcbc70aca5ddabcfdbbc536c2b5f65ccf798ff13d8078738cbbef84c57e99a9
 font_dirs="/usr/share/fonts/TTF"
 
 do_install() {
 	vmkdir usr/share/fonts/TTF
-	vcopy ttf/*.ttf usr/share/fonts/TTF/
-	vlicense LICENSE
+	vcopy fonts/ttf/*.ttf usr/share/fonts/TTF/
 }
