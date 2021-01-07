@@ -1,0 +1,14 @@
+# Template file for 'materia-theme'
+pkgname=materia-theme
+version=20200916
+revision=1
+build_style=meson
+hostmakedepends="sassc"
+makedepends=""
+depends="gtk-engine-murrine gnome-themes-extra"
+short_desc="Material Design theme for GNOME/GTK based desktop environments"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="GPL-2.0-only"
+homepage="https://github.com/nana-4/materia-theme"
+distfiles="https://github.com/nana-4/materia-theme/archive/v${version}.tar.gz"
+checksum=5c524a0a80fc1a7b66ca8dd414b8023d5859bd6657827dceef1c93d2d9ef7dff
