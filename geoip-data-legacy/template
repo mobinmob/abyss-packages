@@ -1,0 +1,34 @@
+# Template file for 'geoip-data-legacy'
+
+#The template uses the artixlinux package as a source.
+#It aims to replace the discontinued geoip-data from
+#the official repos.
+
+pkgname=geoip-data-legacy
+version=20201222
+revision=1
+create_wrksrc=yes
+depends="geoip"
+short_desc="GeoIP legacy country database"
+maintainer="mobinmob <mobinmob@disroot.org>"
+#License available online at:https://www.maxmind.com/en/geolite2/eula
+#mailfud.org redistributes the converted dbs under CC-BY-SA-4.0 International,
+#but MaxMind has extended CC-BY-SA into an EULA.
+license="custom: Geolite2 End User License Agreement" #no vlicense
+homepage="https://mailfud.org/geoip-legacy/"
+distfiles="https://mirrors.dotsrc.org/artix-linux/repos/world/os/x86_64/geoip-database-${version}-1-any.pkg.tar.zst"
+checksum=938940b654f304539a439fdaa3cbcecef73a6575c58e7aee2b9082fef602f230
+
+do_extract() {
+	bsdtar -xf "${XBPS_SRCDISTDIR}/${pkgname}-${version}/geoip-database-${version}-1-any.pkg.tar.zst" -C "${wrksrc}"
+}
+
+do_install() {
+	# Remove metadata files
+	rm -f .BUILDINFO
+	rm -f .MTREE
+	rm -f .PKGINFO
+
+	# Copy files
+	vcopy "*" /
+}
