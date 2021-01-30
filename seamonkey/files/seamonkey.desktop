@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=SeaMonkey
+Comment=All-in-one internet application suite
+Exec=/usr/bin/seamonkey
+Icon=/opt/seamonkey/chrome/icons/default/default128.png
+Path=/opt/seamonkey/
+Terminal=false
+StartupNotify=false
