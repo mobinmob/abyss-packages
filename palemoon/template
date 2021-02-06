@@ -1,6 +1,6 @@
 # Template file for 'palemoon'
 pkgname=palemoon
-version=28.17.0
+version=29.0.1
 revision=1
 archs="x86_64"
 wrksrc=palemoon
@@ -9,8 +9,8 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="MPL-2.0"
 homepage="https://www.palemoon.org/"
 changelog="https://www.palemoon.org/releasenotes.shtml"
-distfiles="https://linux.palemoon.org/datastore/release/palemoon-${version}.linux-x86_64-gtk2.tar.xz"
-checksum=4bd82662526ccde144b8c3f73b8fbd6f0d5a6b7fffafe1f96c30f9dc8584088d
+distfiles="http://linux.palemoon.org/datastore/release/palemoon-${version}.linux-x86_64-gtk3.tar.xz"
+checksum=ecb2e263b80755dc1c582d1b1f27bff189ddc810351d3bea564903647bc207c7
 nopie=yes
 
 do_install() {
