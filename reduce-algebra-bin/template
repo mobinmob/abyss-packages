@@ -13,7 +13,6 @@ short_desc="Portable general-purpose computer algebra system"
 maintainer="mobinmob <mobinmob@disroot.org>"
 license="BSD-2-Clause"
 homepage="https://reduce-algebra.sourceforge.io/"
-https://downloads.sourceforge.net/project/reduce-algebra/snapshot_2020-10-07/linux64/reduce-complete_5424_amd64.tgz?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Freduce-algebra%2Ffiles%2Fsnapshot_2020-10-07%2Flinux64%2Freduce-complete_5424_amd64.tgz%2Fdownload&ts=1602884932
 distfiles="${SOURCEFORGE_SITE}/reduce-algebra/${_upstr_version}/linux64/reduce-complete_${_svnrev}_amd64.tgz"
 checksum=702ecf176f9a9988d16e46181dd81d5800af792e1ef0255d46f3206e68df635c
 nopie=yes
