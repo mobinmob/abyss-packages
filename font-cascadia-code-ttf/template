@@ -1,6 +1,6 @@
 # Template file for 'font-cascadia-code-ttf'
 pkgname=font-cascadia-code-ttf
-version=2009.22
+version=2102.25
 revision=1
 create_wrksrc=yes
 depends="font-util xbps-triggers"
@@ -11,7 +11,7 @@ homepage="https://github.com/microsoft/cascadia-code"
 changelog="https://raw.githubusercontent.com/microsoft/cascadia-code/master/FONTLOG.txt"
 distfiles="https://github.com/microsoft/cascadia-code/releases/download/v${version}/CascadiaCode-${version}.zip
  https://raw.githubusercontent.com/microsoft/cascadia-code/master/LICENSE"
-checksum="801bcc94b79ae46bc573c9c07feb44d581e12d15f79b176be165f00f8fdf9846
+checksum="a64e8834f06ec9acca4a5307cb6cf35922021d4fd0ca19096f8bf6a3e2515ad3
  51882cd3cdba4e16f220f44ddb08a635c38c44ea6e0975db2574f4be6f958238"
 skip_extraction="LICENSE"
 
