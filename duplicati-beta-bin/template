@@ -1,18 +1,18 @@
 # Template file for 'duplicati-beta-bin'
 pkgname=duplicati-beta-bin
-version=2.0.5.1
+version=2.0.6.1
 revision=1
-_reldate="20200118"
+_reldate="20210503"
 build_style=fetch
 hostmakedepends="rpmextract"
 depends="gtk-sharp2 mono"
 short_desc="Backup software to store encrypted backups online"
 maintainer="mobinmob <mobinmob@disroot.org>"
 #Duplicati is licensed under LGPL-2.1-or-later, all other licenses are for bundled third-party components.
-license="LGPL-2.1-or-later, BSD-3-Clause, GPL-2.0-or-later, MIT, Apache-2.0, LGPL-3.0-only, MicrosoftSharePointClientComponentsEULA, MS-PL, Public Domain" # no vlicense - see above
+license="LGPL-2.1-or-later, BSD-3-Clause, GPL-2.0-or-later, MIT, Apache-2.0, LGPL-3.0-only, custom:MicrosoftSharePointClientComponentsEULA, MS-PL, Public Domain" # no vlicense - see above
 homepage="https://www.duplicati.com/"
 distfiles="https://updates.duplicati.com/beta/duplicati-${version}-${version}_beta_${_reldate}.noarch.rpm"
-checksum=ca2d6516763ca46071e5a5199ba528b5ecb77c3d9ff5f74f8ea7af1fa5c3c9eb
+checksum=adc760b2ef6e2948ee2338f0627d379147fed341b3511b8178a4ecf06b77a2dc
 python_version=3
 
 do_install() {
