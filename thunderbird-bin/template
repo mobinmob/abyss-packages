@@ -1,6 +1,6 @@
 # Template file for 'thunderbird-bin'
 pkgname=thunderbird-bin
-version=78.10.0
+version=78.10.1
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -10,7 +10,7 @@ license="MPL-2.0, GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://www.thunderbird.net/"
 changelog="https://www.thunderbird.net/en-US/thunderbird/${version}/releasenotes/"
 distfiles="${MOZILLA_SITE}/thunderbird/releases/${version}/linux-x86_64/en-US/thunderbird-${version}.tar.bz2"
-checksum=e7f324c2e959ca3ce15dddf949927975cb06001243f3b7bd8a0e162edebf837e
+checksum=0b16625e49f5f8bad3d3a01da8b2a3517ae8dbe6e6e91cac39d4f16bc7e11026
 nopie=yes
 
 do_install() {
