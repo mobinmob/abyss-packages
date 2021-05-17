@@ -1,6 +1,6 @@
 # Template file for 'teamviewer'
 pkgname=teamviewer
-version=15.16.8
+version=15.17.6
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -10,7 +10,7 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="custom:proprietary" #no vlicense
 homepage="https://www.teamviewer.com/"
 distfiles="https://dl.teamviewer.com/download/linux/version_15x/teamviewer_${version}.x86_64.rpm"
-checksum=3855a3c620b93469c9a6b54f6ecde2c10950122b43b37d1e6a62f00497de1287
+checksum=eceb387638f6a52f6a7a5713d62452e547a6171200e76153c2ab4dc66df015b8
 nopie=yes
 
 pre_install() {
@@ -19,4 +19,10 @@ pre_install() {
 
 do_install() {
 	vcopy * /
+}
+
+post_install() {
+	# Create a symlink for the teamviewer daemon in the path.
+	# teamviewerd needs to be runing for the frontend to function.
+	ln -s /opt/teamviewer/tv_bin/teamviewerd "${DESTDIR}/usr/bin/teamviewerd"
 }
