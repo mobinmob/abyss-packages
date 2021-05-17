@@ -1,15 +1,15 @@
 # Template file for 'base16-xfce4-terminal-git'
 pkgname=base16-xfce4-terminal-git
-version=0.0.20210107
+version=0.0.20210511
 revision=1
-_commit_hash=d937d5da60d7ee1fb61ab75bd10c1b107b32790c
+_commit_hash=b796a0689bc14e2f03aa2efe54c95b151a358c67
 wrksrc="base16-xfce4-terminal-${_commit_hash}"
 short_desc="Base16 template for xfce4-terminal"
 maintainer="mobinmob <mobinmob@disroot.org>"
 license="MIT"
 homepage="https://github.com/afq984/base16-xfce4-terminal"
 distfiles="https://github.com/afq984/base16-xfce4-terminal/archive/${_commit_hash}.tar.gz"
-checksum=e5dad162864b2ebb455badd8cdf3c43d23b0d437c4fa0a19ee6c273c854f2b35
+checksum=be206a9918f5daf592617da740d0457a915e9f44277c3d65e5020ec8dde2c8d0
 
 do_install() {
 	vmkdir usr/share/xfce4/terminal/colorschemes
