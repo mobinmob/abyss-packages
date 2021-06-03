@@ -1,0 +1,32 @@
+# Template file for 'Webex'
+# Repackages the official rpm package.
+pkgname=Webex
+# There are no versioned downloads for the sw.
+version=41.6.0.19119
+revision=1
+archs="x86_64"
+create_wrksrc=yes
+hostmakedepends="rpmextract"
+short_desc="Video conference and colaboration sw"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="custom:proprietary" # no vlicense
+homepage="https://www.webex.com/"
+changelog="https://help.webex.com/en-us/mqkve8/Webex-Release-Notes"
+distfiles="https://binaries.webex.com/WebexDesktop-CentOS-Official-Package/Webex.rpm"
+checksum=e12721ad19f1fa0de551e4107f59a10be37746da3db7d20fcc16756fa7536784
+nopie=yes # /opt/Webex/bin/CiscoCollabHost is nopie
+nostrip=yes
+
+do_install() {
+	# Copy files
+	vcopy "*" /
+}
+
+post_install() {
+	# Symlink the main binary to the path.
+	vmkdir usr/bin
+	ln -s /opt/Webex/bin/CiscoCollabHost "${DESTDIR}"/usr/bin/webex
+	# Copy the .desktop file to the proper dir.
+	vmkdir /usr/share/applications/
+	cp opt/Webex/bin/webex.desktop "${DESTDIR}"/usr/share/applications/
+}
