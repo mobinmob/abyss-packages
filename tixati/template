@@ -1,6 +1,6 @@
 # Template file for 'tixati'
 pkgname=tixati
-version=2.81
+version=2.83
 revision=1
 _upstrrev=1
 archs="x86_64"
@@ -10,7 +10,7 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="custom:Proprietary" #no licence file for vlicense
 homepage="https://www.tixati.com/"
 distfiles="https://download2.tixati.com/download/tixati-${version}-${_upstrrev}.x86_64.manualinstall.tar.gz"
-checksum=ab02b1966139f55fab5edb985813300f53bb38ee206f7ea537cb3217243ab8b7
+checksum=e639a4305d922401146b499a491c9d8ad204480cc32975ba88c8b67caf30225d
 nopie=yes
 
 do_install() {
