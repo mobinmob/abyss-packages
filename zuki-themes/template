@@ -1,8 +1,8 @@
 # Template file for 'zuki-themes'
 pkgname=zuki-themes
-version=3.36.4
+version=3.38.1
 revision=1
-_upstr_version=3.36-4
+_upstr_version=3.38-1
 wrksrc="${pkgname}-${_upstr_version}"
 build_style=meson
 hostmakedepends="sassc"
@@ -13,4 +13,4 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/lassekongo83/zuki-themes"
 distfiles="https://github.com/lassekongo83/zuki-themes/archive/v${_upstr_version}.tar.gz"
-checksum=5416e966e69c3e7ab6573e7a4315633b5275fce848ded40abee443174404f661
+checksum=a3923b169cd550fffc437cf5f098b8a1f84ab0cad5c07b1b6fa25b0e80439893
