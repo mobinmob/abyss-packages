@@ -1,0 +1,15 @@
+# Template file for 'vocal'
+pkgname=vocal
+version=2.4.2
+revision=1
+build_style=cmake
+build_helper=gir
+hostmakedepends="pkg-config glib-devel gettext-devel"
+makedepends="clutter-gst3-devel libsecret-devel webkit2gtk-devel libgee08-devel
+ granite-devel sqlite-devel clutter-gtk-devel"
+short_desc="Beautiful, and simple podcast client for the modern free desktop"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="GPL-3.0-or-later"
+homepage="https://vocalproject.net/"
+distfiles="https://github.com/needle-and-thread/vocal/archive/refs/tags/${version}.tar.gz"
+checksum=be1991f08db05feacad30a0f459002327ba5ff3cb04757383f1da62904acdb41
