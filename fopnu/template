@@ -1,6 +1,6 @@
 # Template file for 'fopnu'
 pkgname=fopnu
-version=1.53
+version=1.54
 revision=1
 _upstrrev=1
 archs="x86_64"
@@ -11,7 +11,7 @@ license="custom:Proprietary" #no licence file for vlicense
 homepage="https://www.fopnu.com/"
 changelog="https://www.fopnu.com/news/"
 distfiles="https://download2.fopnu.com/download/fopnu-${version}-${_upstrrev}.x86_64.manualinstall.tar.gz"
-checksum=413aa767a951992e4d98f31598bd9f7a4464e4b4fe47d96463975c01ad82b108
+checksum=d6df437c634c706d3e4dc833bed3602fea5d3fecdc48b130ab1c8beb5b454746
 nopie=yes
 
 do_install() {
