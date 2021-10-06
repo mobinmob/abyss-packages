@@ -1,19 +1,19 @@
 # Template file for 'opera-ffmpeg-codecs'
 # This is just a repack of the archlinux package (community repo)
 pkgname=opera-ffmpeg-codecs
-version=92.0.4515.107
-revision=1
+version=93.0.4577.82
+revision=2
 archs="x86_64"
 hostmakedepends="zstd"
 short_desc="Extra codecs for the opera browser"
 maintainer="mobinmob <mobinmob@disroot.org>"
 license="LGPL-2.1-or-later"
 homepage="https://www.archlinux.org/packages/community/x86_64/opera-ffmpeg-codecs/"
-distfiles="https://mirror.bethselamin.de/community/os/x86_64/opera-ffmpeg-codecs-${version}-1-x86_64.pkg.tar.zst"
-checksum=9ece1c937ed1c9e12aab724fdbb28827e086a9a3c8946d13e98613b0dbab60bc
+distfiles="https://mirror.bethselamin.de/community/os/x86_64/opera-ffmpeg-codecs-${version}-${revision}-x86_64.pkg.tar.zst"
+checksum=da1775b49b1c81c4d1a53865023f63cd5123ec2397b0efea35d468e2ad46a432
 
 do_extract() {
-	bsdtar -xf "${XBPS_SRCDISTDIR}/${pkgname}-${version}/${pkgname}-${version}-1-x86_64.pkg.tar.zst" -C "${wrksrc}"
+	bsdtar -xf "${XBPS_SRCDISTDIR}/${pkgname}-${version}/${pkgname}-${version}-${revision}-x86_64.pkg.tar.zst" -C "${wrksrc}"
 }
 
 do_install() {
