@@ -1,6 +1,6 @@
 # Template file for 'teamviewer'
 pkgname=teamviewer
-version=15.17.6
+version=15.22.3
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -10,7 +10,7 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="custom:proprietary" #no vlicense
 homepage="https://www.teamviewer.com/"
 distfiles="https://dl.teamviewer.com/download/linux/version_15x/teamviewer_${version}.x86_64.rpm"
-checksum=eceb387638f6a52f6a7a5713d62452e547a6171200e76153c2ab4dc66df015b8
+checksum=ed8e2928534094e4e8ccbb0b61c16838ba68555fd7bb6f82dc17ec293672d326
 nopie=yes
 
 pre_install() {
