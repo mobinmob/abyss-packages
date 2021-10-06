@@ -1,8 +1,8 @@
 # Template file for 'smartgit'
 pkgname=smartgit
-version=21.1.1
+version=21.1.2
 revision=1
-_tarver=21_1_1
+_tarver=21_1_2
 archs="x86_64"
 wrksrc=smartgit
 depends="git"
@@ -12,7 +12,7 @@ license="GPL-3.0-or-later"
 homepage="https://www.syntevo.com/smartgit/"
 changelog="https://www.syntevo.com/smartgit/changelog.txt"
 distfiles="https://www.syntevo.com/downloads/smartgit/smartgit-linux-${_tarver}.tar.gz"
-checksum=2a03aef75dc78cc230d09589e656a1c11cb144c588adae935316fabd66669250
+checksum=f910759a9c6620fbff971ac6e88c91e2118abdbda63b784a299be1c6d8b2d1db
 nopie=yes
 python_version=3
 
@@ -27,5 +27,5 @@ do_install() {
 	vmkdir usr/share/icons
 	ln -s /opt/smartgit/smartgit-256.png "${DESTDIR}/usr/share/icons/smartgit.png"
 	vmkdir usr/share/applications
-	cp "${FILESDIR}/SmartGit.desktop" "${DESTDIR}/usr/share/applications/"
+	vinstall "${FILESDIR}/SmartGit.desktop" 644 usr/share/applications/
 }
