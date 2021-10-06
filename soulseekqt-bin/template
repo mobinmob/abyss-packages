@@ -1,6 +1,6 @@
-# Template file for 'soulseekqt'
+# Template file for 'soulseekqt-bin'
 # Heavily based on the AUR pkgbuild
-pkgname=soulseekqt
+pkgname=soulseekqt-bin
 version=20180130
 revision=1
 archs="x86_64"
@@ -29,9 +29,9 @@ do_install() {
 	vbin "${FILESDIR}/soulseekqt.sh" soulseekqt
 	vinstall libselinux.so.1 755 opt/soulseekqt/lib/
 	vmkdir usr/share/applications
-	cp "${FILESDIR}"/soulseekqt.desktop "${DESTDIR}"/usr/share/applications/
+	vinstall "${FILESDIR}"/soulseekqt.desktop 644 usr/share/applications/
 	vmkdir usr/share/icons
-	cp squashfs-root/soulseek.png "${DESTDIR}"/usr/share/icons/
+	vinstall squashfs-root/soulseek.png 644 usr/share/icons/
 	rm "${DESTDIR}"/opt/soulseekqt/lib/libfreetype.so.6
 	rm -rf "${DESTDIR}"/opt/soulseekqt/{AppRun,default.desktop,soulseek.png,*.AppImage}
 }
