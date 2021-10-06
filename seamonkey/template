@@ -1,6 +1,6 @@
 # Template file for 'seamonkey'
 pkgname=seamonkey
-version=2.53.9
+version=2.53.9.1
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -10,14 +10,14 @@ license="MPL-2.0, GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://www.seamonkey-project.org/"
 changelog="https://www.seamonkey-project.org/releases/seamonkey${version}/"
 distfiles="${MOZILLA_SITE}/seamonkey/releases/${version}/linux-x86_64/en-US/seamonkey-${version}.en-US.linux-x86_64.tar.bz2"
-checksum=7e20d6080d64ac1eb8f05d5b1e01c6833b68b4329e329a7f12ef3d1c1d17368c
+checksum=2bea9b378e90e287d16e6f6fc421ec175d0f6c73a67bb9ec2f7f2398d95e4e86
 nopie=yes
 
 do_install() {
 	vmkdir opt
 	vcopy * opt/
 	vmkdir usr/share/applications
-	cp ${FILESDIR}/seamonkey.desktop ${DESTDIR}/usr/share/applications/
+	vinstall ${FILESDIR}/seamonkey.desktop 644 usr/share/applications/
 	# Create a symlink in /usr/bin/
 	vmkdir usr/bin
 	ln -s /opt/seamonkey/seamonkey ${DESTDIR}/usr/bin/seamonkey
