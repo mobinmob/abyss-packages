@@ -1,6 +1,6 @@
 # Template file for 'thunderbird-bin'
 pkgname=thunderbird-bin
-version=91.1.2
+version=91.2.0
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -10,14 +10,14 @@ license="MPL-2.0, GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://www.thunderbird.net/"
 changelog="https://www.thunderbird.net/en-US/thunderbird/${version}/releasenotes/"
 distfiles="${MOZILLA_SITE}/thunderbird/releases/${version}/linux-x86_64/en-US/thunderbird-${version}.tar.bz2"
-checksum=1354e3ad2989749fe79b404ccae3002de8b4e269c98388d9abebe456f3de47d2
+checksum=baa01b7ff4fb3726729708169613c6dea3e68feb083aa3b5cdf69c48b753ba74
 nopie=yes
 
 do_install() {
 	vmkdir opt
 	vcopy * opt/
 	vmkdir usr/share/applications
-	cp ${FILESDIR}/thunderbird-bin.desktop ${DESTDIR}/usr/share/applications/
+	vinstall ${FILESDIR}/thunderbird-bin.desktop 644 usr/share/applications/
 	# Create a symlink in /usr/bin/
 	vmkdir usr/bin
 	ln -s /opt/thunderbird/thunderbird ${DESTDIR}/usr/bin/thunderbird-bin
