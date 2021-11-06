@@ -1,0 +1,28 @@
+# Template file for 'waterfox'
+pkgname=waterfox
+version=4.0.2.1
+revision=1
+archs="x86_64"
+wrksrc=waterfox
+short_desc="Indie web browser"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="MPL-2.0"
+homepage="https://www.waterfox.net/"
+distfiles="https://github.com/WaterfoxCo/Waterfox/releases/download/G${version}/waterfox-G${version}.en-US.linux-x86_64.tar.bz2"
+checksum=e79985ed0d5da5674540077603dfbb5affc0b6e5f7c429dbd53105be098f5736
+nopie=yes
+
+
+do_install() {
+	vmkdir opt/waterfox
+	vcopy "*" opt/waterfox
+	# Create symlink in path
+	vmkdir usr/bin
+	ln -s /opt/waterfox/waterfox "${DESTDIR}/usr/bin/waterfox"
+	# Copy icon and .desktop file
+	vmkdir usr/share/pixmaps
+	vinstall "${DESTDIR}/opt/waterfox/browser/chrome/icons/default/default128.png" 644 \
+usr/share/pixmaps/ waterfox.png
+	vmkdir usr/share/applications
+	vinstall "${FILESDIR}/waterfox.desktop" 644 usr/share/applications/
+}
