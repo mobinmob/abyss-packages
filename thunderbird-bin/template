@@ -1,7 +1,7 @@
 # Template file for 'thunderbird-bin'
 pkgname=thunderbird-bin
 version=91.3.0
-revision=1
+revision=2
 archs="x86_64"
 create_wrksrc=yes
 short_desc="Standalone Mail/News reader"
@@ -16,8 +16,15 @@ nopie=yes
 do_install() {
 	vmkdir opt
 	vcopy * opt/
+
+	# Copy .desktop file
 	vmkdir usr/share/applications
 	vinstall ${FILESDIR}/thunderbird-bin.desktop 644 usr/share/applications/
+
+	# Copy icon
+	vmkdir usr/share/icons/hicolor/48x48/apps
+	vinstall thunderbird/chrome/icons/default/default48.png 644 usr/share/icons/hicolor/48x48/apps/ thunderbird-bin.png
+
 	# Create a symlink in /usr/bin/
 	vmkdir usr/bin
 	ln -s /opt/thunderbird/thunderbird ${DESTDIR}/usr/bin/thunderbird-bin
