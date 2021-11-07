@@ -2,7 +2,10 @@
 # Repackages the official rpm package.
 pkgname=Webex
 # There are no versioned downloads for the sw.
-version=41.6.0.19119
+# You must rebuild the package for updates # **and** remove the
+# old package from hostdir/binpkgs/<branchname> before building.
+# To install the new version use xi -f Webex.
+version=latest.0
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -12,14 +15,25 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="custom:proprietary" # no vlicense
 homepage="https://www.webex.com/"
 changelog="https://help.webex.com/en-us/mqkve8/Webex-Release-Notes"
-distfiles="https://binaries.webex.com/WebexDesktop-CentOS-Official-Package/Webex.rpm"
-checksum=e12721ad19f1fa0de551e4107f59a10be37746da3db7d20fcc16756fa7536784
 nopie=yes # /opt/Webex/bin/CiscoCollabHost is nopie
 nostrip=yes
 
+do_fetch() {
+	# Create the worksrc
+	mkdir -p "${wrksrc}"
+	# Fetch the distfile
+	xbps-fetch https://binaries.webex.com/WebexDesktop-CentOS-Official-Package/Webex.rpm
+	# Move the rpm
+	mv Webex.rpm "${wrksrc}"
+}
+
 do_install() {
-	# Copy files
-	vcopy "*" /
+	# Extract the distfile
+	rpmextract Webex.rpm
+	# Remove the distfile
+	rm -f Webex.rpm
+	# Copy the files
+	vcopy "./*" /
 }
 
 post_install() {
