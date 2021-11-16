@@ -1,6 +1,6 @@
 # Template file for 'waterfox'
 pkgname=waterfox
-version=4.0.2.1
+version=4.0.3
 revision=1
 archs="x86_64"
 wrksrc=waterfox
@@ -8,8 +8,9 @@ short_desc="Indie web browser"
 maintainer="mobinmob <mobinmob@disroot.org>"
 license="MPL-2.0"
 homepage="https://www.waterfox.net/"
+changelog="https://www.waterfox.net/docs/releases/G${version}/?update"
 distfiles="https://github.com/WaterfoxCo/Waterfox/releases/download/G${version}/waterfox-G${version}.en-US.linux-x86_64.tar.bz2"
-checksum=e79985ed0d5da5674540077603dfbb5affc0b6e5f7c429dbd53105be098f5736
+checksum=a12b805130e1427554dd22ab4494aae9fa24bc962dfedacd105bf0d27baf7afa
 nopie=yes
 
 
