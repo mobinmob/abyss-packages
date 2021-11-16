@@ -1,0 +1,22 @@
+# Template file for 'microsoft-edge-stable'
+pkgname=microsoft-edge-stable
+version=95.0.1020.53
+revision=1
+archs="x86_64"
+create_wrksrc=yes
+hostmakedepends="rpmextract"
+short_desc="Web browser from MS"
+maintainer="mobinmob <mobinmob@disroot.org>"
+# License is available from inside the browser - edge://terms/
+license="custom:proprietary" #no vlicense
+homepage="https://www.microsoft.com/en-us/edge"
+distfiles="https://packages.microsoft.com/yumrepos/edge/microsoft-edge-stable-${version}-1.x86_64.rpm"
+checksum=19f080a8613be83029719ef25fad8bdf990ea322f9e6181650322468164c470b
+
+do_install() {
+	# Copy files
+	vcopy "*" /
+
+	# Remove cronjob
+	rm -f "${DESTDIR}/etc/cron.daily/microsoft-edge"
+}
