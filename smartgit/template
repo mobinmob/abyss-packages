@@ -1,18 +1,18 @@
 # Template file for 'smartgit'
 pkgname=smartgit
-version=21.1.3
+version=21.2.0
 revision=1
-_tarver=21_1_3
+_tarver=21_2_0
 archs="x86_64"
 wrksrc=smartgit
 depends="git"
 short_desc="Graphical Git client"
 maintainer="mobinmob <mobinmob@disroot.org>"
-license="custom:proprietary" #no vlicense
+license="custom:proprietary"
 homepage="https://www.syntevo.com/smartgit/"
 changelog="https://www.syntevo.com/smartgit/changelog.txt"
 distfiles="https://www.syntevo.com/downloads/smartgit/smartgit-linux-${_tarver}.tar.gz"
-checksum=532fd5445c1bedd5c6dbaadac333be3a03e6aaeed0a231bc22b35eeec5cf85c5
+checksum=a5e16e20c1d15eb2c2df2a8d00e957d12af1e7339f9eb17cc809bfdb81564395
 nopie=yes
 python_version=3
 
@@ -20,12 +20,21 @@ do_install() {
 	# Copy files
 	vmkdir opt/smartgit
 	vcopy "*" opt/smartgit/
+
 	# Link script in $PATH
 	vmkdir usr/bin
 	ln -s /opt/smartgit/bin/smartgit.sh "${DESTDIR}/usr/bin/smartgit"
+
 	# Install icons and .desktop files
 	vmkdir usr/share/icons
-	ln -s /opt/smartgit/smartgit-256.png "${DESTDIR}/usr/share/icons/smartgit.png"
+	cp "${DESTDIR}/opt/smartgit/bin/smartgit-256.png" "${DESTDIR}/usr/share/icons/smartgit.png"
 	vmkdir usr/share/applications
 	vinstall "${FILESDIR}/SmartGit.desktop" 644 usr/share/applications/
+
+	# Install licenses
+	vlicense license.html
+	for file in licenses/*
+	do
+	vlicense $file
+	done
 }
