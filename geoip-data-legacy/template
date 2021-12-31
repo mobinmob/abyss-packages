@@ -5,7 +5,7 @@
 #the official repos.
 
 pkgname=geoip-data-legacy
-version=20211026
+version=20211221
 revision=1
 create_wrksrc=yes
 depends="geoip"
@@ -17,7 +17,7 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="custom: Geolite2 End User License Agreement" #no vlicense
 homepage="https://mailfud.org/geoip-legacy/"
 distfiles="https://mirrors.dotsrc.org/artix-linux/repos/world/os/x86_64/geoip-database-${version}-1-any.pkg.tar.zst"
-checksum=d1bd31aa8db7b6d11947d350bb0e9d5275a970e58e565096725a3a6620002d3a
+checksum=6fc1795f943d24a1f948951a19adf0110c357aceec4183d924b4fa01cb03cd6a
 
 do_extract() {
 	bsdtar -xf "${XBPS_SRCDISTDIR}/${pkgname}-${version}/geoip-database-${version}-1-any.pkg.tar.zst" -C "${wrksrc}"
