@@ -1,7 +1,7 @@
 # Template file for 'softmaker-freeoffice-2021'
 # Heavily based on the AUR (PKGBUILD+extra files)
 pkgname=softmaker-freeoffice-2021
-version=1036
+version=1042
 revision=1
 archs="i686 x86_64"
 create_wrksrc=yes
@@ -9,11 +9,10 @@ short_desc="Free alternative to MS Office" #Freeware, restrictions apply
 maintainer="mobinmob <mobinmob@disroot.org>"
 license="custom:eula" # no vlicense
 homepage="https://www.freeoffice.com/en/"
+distfiles="https://www.freeoffice.com/download.php?filename=https://www.softmaker.net/down/${pkgname}-${version}-amd64.tgz"
+checksum=0f925bcc0c81bf477731941f4eecb78bd2e35f9031c4942e6789e692025c88ab
 nopie=yes
 replaces=softmaker-freeoffice-2018>=0
-
-distfiles="https://www.freeoffice.com/download.php?filename=https://www.softmaker.net/down/softmaker-freeoffice-${version}-amd64.tgz"
-checksum=212911b159b8204566eca12e0b53bbe2bd52472032815c91aec77963026f606a
 
 do_install() {
 	# Copy files
@@ -30,7 +29,7 @@ do_install() {
 	vmkdir usr/share/pixmaps
 	cp "${DESTDIR}/opt/freeoffice/icons/pml_1024.png" "${DESTDIR}/usr/share/pixmaps/freeoffice-planmaker.png"
 	cp "${DESTDIR}/opt/freeoffice/icons/prl_1024.png" "${DESTDIR}/usr/share/pixmaps/freeoffice-presentations.png"
-	cp "${DESTDIR}/opt/freeoffice/icons/tml_1024.png" "${DESTDIR}/usr/share/pixmaps/freeoffice-textmaker.png
+	cp "${DESTDIR}/opt/freeoffice/icons/tml_1024.png" "${DESTDIR}/usr/share/pixmaps/freeoffice-textmaker.png"
 
 	# Copy .desktop
 	vmkdir usr/share/applications
@@ -39,7 +38,7 @@ do_install() {
 		done
 
 	# Install to documentation to the proper place
-	vmkdir usr/share/doc/${pkgname}
+	vmkdir usr/share/doc/"${pkgname}"
 	for i in pmfree_en.pdf prfree_en.pdf tmfree_en.pdf; do
 		mv "${DESTDIR}/opt/freeoffice/$i" "${DESTDIR}/usr/share/doc/${pkgname}/"
 		done
