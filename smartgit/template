@@ -1,8 +1,8 @@
 # Template file for 'smartgit'
 pkgname=smartgit
-version=21.2.0
+version=21.2.1
 revision=1
-_tarver=21_2_0
+_tarver=21_2_1
 archs="x86_64"
 wrksrc=smartgit
 depends="git"
@@ -12,7 +12,7 @@ license="custom:proprietary"
 homepage="https://www.syntevo.com/smartgit/"
 changelog="https://www.syntevo.com/smartgit/changelog.txt"
 distfiles="https://www.syntevo.com/downloads/smartgit/smartgit-linux-${_tarver}.tar.gz"
-checksum=a5e16e20c1d15eb2c2df2a8d00e957d12af1e7339f9eb17cc809bfdb81564395
+checksum=ba7faa12c23ba238cbe88ac5ea2a4457248952d633328c1987874d17b701e4aa
 nopie=yes
 python_version=3
 
