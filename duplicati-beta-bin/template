@@ -1,8 +1,8 @@
 # Template file for 'duplicati-beta-bin'
 pkgname=duplicati-beta-bin
-version=2.0.6.1
+version=2.0.6.3
 revision=1
-_reldate="20210503"
+_reldate="20210617"
 build_style=fetch
 hostmakedepends="rpmextract"
 depends="gtk-sharp2 mono"
@@ -12,7 +12,7 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="LGPL-2.1-or-later, BSD-3-Clause, GPL-2.0-or-later, MIT, Apache-2.0, LGPL-3.0-only, custom:MicrosoftSharePointClientComponentsEULA, MS-PL, Public Domain" # no vlicense - see above
 homepage="https://www.duplicati.com/"
 distfiles="https://updates.duplicati.com/beta/duplicati-${version}-${version}_beta_${_reldate}.noarch.rpm"
-checksum=adc760b2ef6e2948ee2338f0627d379147fed341b3511b8178a4ecf06b77a2dc
+checksum=fac8681c318175ee6a8adcd93d10a78b4a94e05dd571944e073b688804d0cd56
 python_version=3
 
 do_install() {
