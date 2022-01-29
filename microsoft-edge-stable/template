@@ -1,6 +1,6 @@
 # Template file for 'microsoft-edge-stable'
 pkgname=microsoft-edge-stable
-version=97.0.1072.69
+version=97.0.1072.76
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -11,7 +11,7 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="custom:proprietary" #no vlicense
 homepage="https://www.microsoft.com/en-us/edge"
 distfiles="https://packages.microsoft.com/yumrepos/edge/microsoft-edge-stable-${version}-1.x86_64.rpm"
-checksum=fc0be8fcd12d3131cbe9b8f747991e81d07ae067023aa6ab628695cf7c78fad9
+checksum=a28efc3cbab372a42198a513ddc630d9d836019ff22b10828cd09bef11982d00
 
 do_install() {
 	# Copy files
@@ -19,4 +19,8 @@ do_install() {
 
 	# Remove cronjob
 	rm -f "${DESTDIR}/etc/cron.daily/microsoft-edge"
+
+	# Install the icon
+	vmkdir usr/share/pixmaps
+	vinstall opt/microsoft/msedge/product_logo_128.png 644 usr/share/pixmaps microsoft-edge.png
 }
