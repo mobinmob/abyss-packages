@@ -1,0 +1,26 @@
+# Template file for 'vuescan'
+pkgname=vuescan
+version=9.7.79
+revision=1
+archs="x86_64"
+create_wrksrc=yes
+hostmakedepends="rpmextract"
+short_desc="Cross-platform scanning utility"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="custom:proprietary" #no vlicense
+homepage="https://www.hamrick.com/"
+_upstr_ver=97
+distfiles="https://www.hamrick.com/files/vuex64${_upstr_ver}.rpm"
+checksum=36dd85f4af47c005671404cd1829e747a9b28e3e7b0614822e63c4ac16d02426
+nopie=yes
+nostrip=yes
+
+do_install() {
+	# Copy files
+	vcopy "*" /
+
+	# Copy udev rules to the proper place.
+	vmkdir usr/lib/udev/rules.d
+	vinstall lib/udev/rules.d/60-vuescan.rules 644 usr/lib/udev/rules.d/
+ 	rm -f "${DESTDIR}/lib/udev/rules.d/60-vuescan.rules"
+}
