@@ -1,6 +1,6 @@
 # Template file for 'waterfox'
 pkgname=waterfox
-version=4.0.7
+version=4.0.8
 revision=1
 archs="x86_64"
 wrksrc=waterfox
@@ -10,7 +10,7 @@ license="MPL-2.0"
 homepage="https://www.waterfox.net/"
 changelog="https://www.waterfox.net/docs/releases/G${version}/?update"
 distfiles="https://github.com/WaterfoxCo/Waterfox/releases/download/G${version}/waterfox-G${version}.en-US.linux-x86_64.tar.bz2"
-checksum=56abc9f3979be2181ee5e33bb8e2cd8db760e06364b339f60112d3fba0a55426
+checksum=f72fc47ded9caf37836d8e53113c3cafa87a2498db24824bba4e2fe6e529e9b5
 nopie=yes
 
 
