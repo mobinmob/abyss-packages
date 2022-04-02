@@ -1,4 +1,6 @@
 # Template file for 'opera-ffmpeg-codecs'
+# Reason to be in unmaintained_templates: depends on third-party for updates,
+# easy to break.
 # This is just a repack of the archlinux package (community repo)
 pkgname=opera-ffmpeg-codecs
 version=95.0.4638.54

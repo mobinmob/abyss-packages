@@ -1,4 +1,6 @@
 # Template file for 'vocal'
+# Reason to be in unmaintained_templates: does not build with current
+# vala version, seems abandoned.
 pkgname=vocal
 version=2.4.2
 revision=1

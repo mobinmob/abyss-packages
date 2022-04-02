@@ -1,5 +1,6 @@
 # Template file for 'geoip-data-legacy'
-
+# Reason to be in unmaintained_templates: depends on third-party for updates,
+# easy to break.
 #The template uses the artixlinux package as a source.
 #It aims to replace the discontinued geoip-data from
 #the official repos.
