@@ -1,4 +1,6 @@
 # Template file for 'reduce-algebra-bin'
+# Reason to be in unmaintained_templates: no interest in updates,
+# if someone needs it they can speak up :)
 pkgname=reduce-algebra-bin
 version=20210716
 revision=1
