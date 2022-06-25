@@ -1,6 +1,6 @@
 # Template file for 'flat-remix-gtk'
 pkgname=flat-remix-gtk
-version=20220427
+version=20220527
 revision=1
 build_style=gnu-makefile
 depends="gnome-themes-extra"
@@ -9,4 +9,4 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="GPL-3.0-or-later"
 homepage="https://drasite.com/flat-remix-gtk"
 distfiles="https://github.com/daniruiz/flat-remix-gtk/archive/${version}.tar.gz"
-checksum=37cfc17d7af130ca608754d3f95170d57df69d40b6ab54e21ac262225303b8d7
+checksum=c30a40ea4cbcc811d11cd5be84bd0982948f1e9aa8ceee0a89dd09aef2003eb6
