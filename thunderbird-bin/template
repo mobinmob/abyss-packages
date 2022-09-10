@@ -1,6 +1,6 @@
 # Template file for 'thunderbird-bin'
 pkgname=thunderbird-bin
-version=102.2.0
+version=102.2.2
 revision=1
 archs="x86_64"
 create_wrksrc=yes
