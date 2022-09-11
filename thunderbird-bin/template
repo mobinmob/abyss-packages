@@ -1,7 +1,7 @@
 # Template file for 'thunderbird-bin'
 pkgname=thunderbird-bin
 version=102.2.2
-revision=1
+revision=2
 archs="x86_64"
 create_wrksrc=yes
 short_desc="Standalone Mail/News reader"
@@ -10,7 +10,7 @@ license="MPL-2.0, GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://www.thunderbird.net/"
 changelog="https://www.thunderbird.net/en-US/thunderbird/${version}/releasenotes/"
 distfiles="${MOZILLA_SITE}/thunderbird/releases/${version}/linux-x86_64/en-US/thunderbird-${version}.tar.bz2"
-checksum=fc46eed51f11b09a22d048a2e294bab3759ed17047ad049b295ac06124ac26d6
+checksum=a406c23d5e7cc372d68cd5d08f3c86c611fcb63a9b78a944e3e1a048fcb6dbec
 nopie=yes
 
 do_install() {
