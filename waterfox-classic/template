@@ -1,15 +1,15 @@
 # Template file for 'waterfox-classic'
 pkgname=waterfox-classic
-version=2022.04
+version=2022.08
 revision=1
 archs="x86_64"
 wrksrc=waterfox-classic
 short_desc="Indie web browser, classic edition"
 maintainer="mobinmob <mobinmob@disroot.org>"
 license="MPL-2.0"
-homepage="https://www.waterfox.net/"
+homepage="https://classic.waterfox.net/"
 distfiles="https://github.com/WaterfoxCo/Waterfox-Classic/releases/download/${version}-classic/waterfox-classic-${version}.en-US.linux-x86_64.tar.bz2"
-checksum=3697ca609dfed07a362f87786b199df4fbea64ff7dab8b60adc2a44bbcc92182
+checksum=f928b62090e6ceabd686b5540ab6b299a552db43437bb2322892c047ea66e434
 nopie=yes
 
 
