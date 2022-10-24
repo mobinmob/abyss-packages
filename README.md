@@ -19,9 +19,10 @@ The main hosting site for the repo is codeberg:
 
  - https://codeberg.org/mobinmob/abyss-packages
 
-There are also mirrors in framagit and github:
+There are also mirrors in framagit, github and osdn:
 
 - https://framagit.org/mobinmob/abyss-packages
 - https://github.com/mobinmob/abyss-packages
+- https://osdn.net/projects/avyssos/scm/git/abyss-packages/
 
 Issues and PR/MRs are welcome on all of the above.
