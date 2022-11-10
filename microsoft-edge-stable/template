@@ -1,6 +1,6 @@
 # Template file for 'microsoft-edge-stable'
 pkgname=microsoft-edge-stable
-version=106.0.1370.52
+version=107.0.1418.35
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -11,7 +11,7 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="custom:proprietary" #no vlicense
 homepage="https://www.microsoft.com/en-us/edge"
 distfiles="https://packages.microsoft.com/yumrepos/edge/microsoft-edge-stable-${version}-1.x86_64.rpm"
-checksum=fc4444d099a7407e5ba05fc2ae1566ac3c672b33dd64357093852b039dc74f60
+checksum=9b731388a40d01b6e2cbb7e52799817787e6adf65adcd76da9f17814730ce8b9
 
 do_install() {
 	# Copy files
