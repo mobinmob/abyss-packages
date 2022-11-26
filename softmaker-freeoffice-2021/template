@@ -1,7 +1,7 @@
 # Template file for 'softmaker-freeoffice-2021'
 # Heavily based on the AUR (PKGBUILD+extra files)
 pkgname=softmaker-freeoffice-2021
-version=1054
+version=1058
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -10,7 +10,7 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="custom:eula" # no vlicense
 homepage="https://www.freeoffice.com/en/"
 distfiles="https://www.freeoffice.com/download.php?filename=https://www.softmaker.net/down/${pkgname}-${version}-amd64.tgz"
-checksum=76a989526d108b5fc6cc6ac8e0e087a352f04392b1330659c3912c613305e975
+checksum=2bab617b923e8370e992d333d394e4bbcd76aea4985e6ddb1f5517c97c162925
 nopie=yes
 replaces=softmaker-freeoffice-2018>=0
 
