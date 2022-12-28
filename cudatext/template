@@ -1,6 +1,6 @@
 # Template file for 'cudatext'
 pkgname=cudatext
-version=1.176.1.0
+version=1.180.0.0
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -10,7 +10,7 @@ license="MPL-2.0"
 homepage="https://cudatext.github.io/"
 changelog="https://raw.githubusercontent.com/Alexey-T/CudaText/master/app/readme/history.txt"
 distfiles="https://sourceforge.net/projects/cudatext/files/release/${version}/cudatext_${version}-1_qt5_amd64.deb"
-checksum=74acf7456b701c44ee333e3fe278d8da645778178f44294116f41b8f74efa594
+checksum=7d28d7ff3d811327087fa3fe09dfe8856ddb22ee3d677647226c714985212330
 nopie=yes
 python_version=3
 

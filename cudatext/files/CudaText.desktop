@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=CudaText
+Comment=Cross-platform text and code editor
+Exec=/opt/cudatext/cudatext
+Icon=cudatext
+Path=
+Terminal=false
+StartupNotify=false
