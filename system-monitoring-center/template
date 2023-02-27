@@ -1,0 +1,13 @@
+# Template file for 'system-monitoring-center'
+pkgname=system-monitoring-center
+version=2.7.0
+revision=1
+build_style=python3-module
+hostmakedepends="pkg-config python3-cairo-devel python3-gobject-devel python3-setuptools"
+depends="dmidecode eudev libadwaita iproute2 python3-cairo python3-gobject util-linux"
+short_desc="Multi-featured system monitor"
+maintainer="zenobit <zen@osowoso.xyz>"
+license="GPL-3.0-only"
+homepage="https://github.com/hakandundar34coding/system-monitoring-center"
+distfiles="https://github.com/hakandundar34coding/system-monitoring-center/archive/refs/tags/v${version}.tar.gz"
+checksum=9cdb318edfca4461284e5e6a86b2de895b93fd08cec770199e7dd0c6faa4fd08
