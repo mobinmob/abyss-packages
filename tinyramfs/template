@@ -1,0 +1,17 @@
+# Template file for 'tinyramfs'
+pkgname=tinyramfs
+version=0.1.0
+revision=1
+build_style=gnu-makefile
+hostmakedepends="scdoc"
+depends="coreutils cpio eudev gzip kmod util-linux"
+short_desc="Tiny initramfs written in POSIX shell"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/illiliti/tinyramfs"
+distfiles="https://github.com/illiliti/tinyramfs/archive/refs/tags/${version}.tar.gz"
+checksum=a78ecd56a52a02bc1f4b86ba829a957ad1f83c252bfde66562d5c3ef40be7c51
+
+pre_build() {
+	make doc
+}
