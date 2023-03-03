@@ -1,6 +1,6 @@
 # Template file for 'quickemu'
 pkgname=quickemu
-version=4.6.0.1
+version=4.6.0.2
 revision=1
 depends="bash cdrtools coreutils grep jq procps-ng python3 qemu sed socat spice-gtk swtpm usbutils util-linux wget xdg-user-dirs xrandr zsync"
 short_desc="Quickly create and run optimised virtual machines"
@@ -10,7 +10,7 @@ homepage="https://github.com/quickemu-project/quickemu"
 # distfiles="https://github.com/quickemu-project/quickemu/archive/refs/tags/${version}.tar.gz"
 # Temporary change mirror to my repo with quickfzf added. Will see if will be merged to original project...
 distfiles="https://github.com/oSoWoSo/quickemu/archive/refs/tags/${version}.tar.gz"
-checksum=2f7594cd79e5d992e42697fcb10b9f646b482645f8cac8210cacd2e2d6bbcbee
+checksum=a0488253c1658c8ae7228480e0feddb62dcfc639692447623582d18d225861c2
 
 do_install() {
 	vbin quickemu
