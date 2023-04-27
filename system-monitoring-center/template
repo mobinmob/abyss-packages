@@ -1,13 +1,12 @@
 # Template file for 'system-monitoring-center'
 pkgname=system-monitoring-center
-version=2.10.0
+version=2.12.0
 revision=1
 build_style=meson
-hostmakedepends="pkg-config python3-cairo-devel python3-gobject-devel python3-setuptools kdelibs4support-devel gettext"
-depends="dmidecode eudev libadwaita iproute2 python3-cairo python3-gobject util-linux"
+hostmakedepends="kdelibs4support-devel gettext"
 short_desc="Multi-featured system monitor"
 maintainer="zenobit <zen@osowoso.xyz>"
 license="GPL-3.0-only"
 homepage="https://github.com/hakandundar34coding/system-monitoring-center"
 distfiles="https://github.com/hakandundar34coding/system-monitoring-center/archive/refs/tags/v${version}.tar.gz"
-checksum=e284431d0275b3c8b527f59c4bf678c60eeefd23710d9fd811e26df04f2a106e
+checksum=b04d74855f1cd337b19f1ad889daa7889951dadda00e9e8c1d239369abb8d72e
