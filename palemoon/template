@@ -1,6 +1,6 @@
 # Template file for 'palemoon'
 pkgname=palemoon
-version=32.1.0
+version=32.1.1
 revision=1
 archs="x86_64"
 #wrksrc=palemoon
@@ -10,7 +10,7 @@ license="MPL-2.0"
 homepage="https://www.palemoon.org/"
 changelog="https://www.palemoon.org/releasenotes.shtml"
 distfiles="https://rm-eu.palemoon.org/release/palemoon-${version}.linux-x86_64-gtk3.tar.xz"
-checksum=5b47a084a22f9b179d55096c72b449fef1aeeaeaeac980da494805551a77710d
+checksum=56fc022b02f755db9efaa727d06af95d120b923f8b374857ff3bed8e9a51804e
 nopie=yes
 
 do_install() {
