@@ -1,6 +1,6 @@
 # Template file for 'cudatext'
 pkgname=cudatext
-version=1.195.0.5
+version=1.196.0.0
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -8,15 +8,15 @@ short_desc="Cross-platform text editor, written in Object Pascal"
 maintainer="mobinmob <mobinmob@disroot.org>"
 license="MPL-2.0"
 homepage="https://cudatext.github.io/"
-changelog="https://raw.githubusercontent.com/Alexey-T/CudaText/master/app/readme/history.txt"
-distfiles="https://sourceforge.net/projects/cudatext/files/release/1.195.0.0/cudatext_${version}-1_qt5_amd64.deb"
-checksum=6654a12877fcaf7e708173763f03180abd12ae1bdb9e68b5cf2950b571ac9750
+https://downloads.sourceforge.net/project/cudatext/release/1.196.0.0/cudatext_1.196.0.0-1_qt5_amd64.deb?ts=gAAAAABk2N7EkkkUyCgzMCTuN80CmEcTSeYcd7aIjsUrNWj7wsq8qU1ng1RoNiR6FJr4p1jjN2lAPJc-Zawlr_o6TjYOVp6VdQ%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fcudatext%2Ffiles%2Frelease%2F1.196.0.0%2Fcudatext_1.196.0.0-1_qt5_amd64.deb%2Fdownload
+distfiles="https://sourceforge.net/projects/cudatext/files/release/1.196.0.0/cudatext_${version}-1_qt5_amd64.deb"
+checksum=ab9115d13e948f0e69d42d489a0840fe475f416ec13c7412df9604880c05c7a5
 nopie=yes
 python_version=3
 
 do_extract() {
 	ar p "${XBPS_SRCDISTDIR}/${pkgname}-${version}/${pkgname}_${version}-1_qt5_amd64.deb" \
- data.tar.xz | bsdtar -x -f -
+ data.tar.zst | bsdtar -x -f -
 }
 
 do_install() {
