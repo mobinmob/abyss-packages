@@ -1,0 +1,49 @@
+# Template file for 'AppImageLauncher'
+pkgname=AppImageLauncher
+version=2.2.0
+revision=1
+patch_args="-Np1"
+build_style=cmake
+make_cmd=make
+hostmakedepends="git automake pkg-config libtool wget xxd desktop-file-utils"
+makedepends="glib-devel cairo-devel librsvg-devel libXpm-devel fuse-devel libarchive-devel boost-devel liblzma-devel libcurl-devel qt5-devel"
+short_desc="Helper application for Linux distributions serving as a kind of \"entry point\" for running and integrating AppImages"
+# This was taken directly from m4rcu5's template on GitHub. I've changed the maintainer to myself since he's not the one who added it to this repository, though.
+maintainer="Goddess <yourfavegoddess@protonmail.com>"
+license="MIT"
+homepage="https://github.com/TheAssassin/AppImageLauncher"
+
+# use as many system libraries as possible. (squashfuse and xdg-utils-cxx are missing)
+configure_args="-DUSE_SYSTEM_XZ=ON -DUSE_SYSTEM_LIBARCHIVE=ON -DUSE_SYSTEM_CURL=ON -DUSE_SYSTEM_BOOST=ON"
+
+# generate unix makefiles for use with make
+export CMAKE_GENERATOR="Unix Makefiles"
+
+do_fetch() {
+	# fetch the correct version of this project and all its submodules
+	git clone -b v${version} --recurse-submodules https://github.com/TheAssassin/AppImageLauncher.git --depth=1 ${wrksrc}
+}
+
+do_build() {
+	cd ${cmake_builddir:=build}
+
+	# see https://github.com/TheAssassin/AppImageLauncher/issues/251 for more details why this is required
+	${make_cmd} ${makejobs} libappimage libappimageupdate libappimageupdate-qt
+	cmake .
+
+	${make_cmd} ${makejobs}
+}
+
+# install AppImageLauncher as interpreter for AppImages
+binfmts="--package appimage --install appimage-type1 /usr/bin/AppImageLauncher --magic 'AI\\\x01' --offset 8
+--package appimage --install appimage-type2 /usr/bin/AppImageLauncher --magic 'AI\\\x02' --offset 8"
+
+post_install() {
+	# remove unused files
+	rm -rf ${DESTDIR}/usr/lib/systemd
+	rm -rf ${DESTDIR}/usr/lib/binfmt.d
+
+	# install MIT license
+	vlicense LICENSE.txt
+}
+
