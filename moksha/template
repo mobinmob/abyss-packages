@@ -1,0 +1,23 @@
+# Template file for 'moksha'
+pkgname=moksha
+version=0.4.1
+revision=1
+build_style=gnu-configure
+configure_args="--enable-places-udisks2"
+hostmakedepends="autoconf automake pkg-config libtool"
+makedepends="efl-devel udisks2-devel"
+short_desc="Moksha is a continuation of the Enlightenment 17 desktop"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="BSD-2-Clause"
+homepage="https://www.bodhilinux.com/moksha-desktop/"
+distfiles="https://github.com/JeffHoogland/moksha/archive/refs/tags/${version}.tar.gz"
+checksum=844d0c1941becd5e2ecce1b6c1a234c9b5d08a04ea88b59236c2ed16eec205ce
+conflicts=enlightenment
+
+pre_configure() {
+	./autogen.sh
+}
+
+post_install() {
+	vlicense COPYING
+}
