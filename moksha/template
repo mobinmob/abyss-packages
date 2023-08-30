@@ -20,4 +20,12 @@ pre_configure() {
 
 post_install() {
 	vlicense COPYING
+
+# Use our native tools to shutdown/suspend.
+# Copied from the enlightenment template (halt changed to call poweroff).
+	sed -i 's/^action:.*halt.*/action: halt poweroff/g' ${DESTDIR}/etc/enlightenment/sysactions.conf
+	sed -i 's/^action:.*suspend.*/action: suspend zzz/g' ${DESTDIR}/etc/enlightenment/sysactions.conf
+	sed -i 's/^action:.*hibernate.*/action: hibernate ZZZ/g' ${DESTDIR}/etc/enlightenment/sysactions.conf
+
 }
+
