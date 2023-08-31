@@ -1,0 +1,19 @@
+diff --git a/src/ui/settings_dialog.cpp b/src/ui/settings_dialog.cpp
+index af178f8..740fee0 100644
+--- a/src/ui/settings_dialog.cpp
++++ b/src/ui/settings_dialog.cpp
+@@ -48,6 +48,14 @@ SettingsDialog::SettingsDialog(QWidget* parent) :
+                             "Please install the full version via the provided native packages to enjoy the full AppImageLauncher experience");
+ #endif
+ 
++    // compiling for Void Linux without systemd, we need to inform the user on how to enable the daemon and disable the toggle in the GUI
++    availableFeatures << "<br /><br />"
++                      << tr("<strong>Note: this AppImageLauncher build is packaged for Void Linux, which does not support systemd</strong><br />"
++                            "Please enable the 'appimagelauncherd' service by creating a "
++                            "<a href=\"https://docs.voidlinux.org/config/services/user-services.html\">user service</a> or launching it otherwise.</br />");
++    ui->daemonIsEnabledCheckBox->setChecked(false);
++    ui->daemonIsEnabledCheckBox->setEnabled(false);
++
+     ui->featuresLabel->setText(availableFeatures.join('\n'));
+ 
+     // no matter what tab was selected when saving in Qt designer, we want to start up with the first tab

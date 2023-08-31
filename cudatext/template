@@ -1,25 +1,19 @@
 # Template file for 'cudatext'
 pkgname=cudatext
-version=1.196.0.0
+version=1.197.0.2
 revision=1
 archs="x86_64"
 create_wrksrc=yes
+depends="qt5pas"
 short_desc="Cross-platform text editor, written in Object Pascal"
 maintainer="mobinmob <mobinmob@disroot.org>"
 license="MPL-2.0"
 homepage="https://cudatext.github.io/"
-https://downloads.sourceforge.net/project/cudatext/release/1.196.0.0/cudatext_1.196.0.0-1_qt5_amd64.deb?ts=gAAAAABk2N7EkkkUyCgzMCTuN80CmEcTSeYcd7aIjsUrNWj7wsq8qU1ng1RoNiR6FJr4p1jjN2lAPJc-Zawlr_o6TjYOVp6VdQ%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fcudatext%2Ffiles%2Frelease%2F1.196.0.0%2Fcudatext_1.196.0.0-1_qt5_amd64.deb%2Fdownload
-distfiles="https://sourceforge.net/projects/cudatext/files/release/1.196.0.0/cudatext_${version}-1_qt5_amd64.deb"
-checksum=ab9115d13e948f0e69d42d489a0840fe475f416ec13c7412df9604880c05c7a5
+distfiles="https://sourceforge.net/projects/cudatext/files/release/${version}/cudatext_${version}-1_qt5_amd64.deb"
+checksum=366ef2d1422311912954506bf1b80f912111826d918f6e522b71197875902401
 nopie=yes
 python_version=3
 
-do_extract() {
-	ar p "${XBPS_SRCDISTDIR}/${pkgname}-${version}/${pkgname}_${version}-1_qt5_amd64.deb" \
- data.tar.zst | bsdtar -x -f -
-}
-
 do_install() {
-	vmkdir usr
-	vcopy ${wrksrc}/usr/* usr
+	vcopy usr /
 }

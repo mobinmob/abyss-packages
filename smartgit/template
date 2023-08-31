@@ -1,10 +1,9 @@
 # Template file for 'smartgit'
 pkgname=smartgit
-version=22.1.5
+version=22.1.7
 revision=1
-_tarver=22_1_5
+_tarver=22_1_7
 archs="x86_64"
-wrksrc=smartgit
 depends="git"
 short_desc="Graphical Git client"
 maintainer="mobinmob <mobinmob@disroot.org>"
@@ -12,7 +11,7 @@ license="custom:proprietary"
 homepage="https://www.syntevo.com/smartgit/"
 changelog="https://www.syntevo.com/smartgit/changelog.txt"
 distfiles="https://www.syntevo.com/downloads/smartgit/smartgit-linux-${_tarver}.tar.gz"
-checksum=b37d6c6040b583b78b3214fd5249a36c19c778f63dc2740f9a01905e0557e23e
+checksum=138cd50d6afd604de39ed907a20d3e63ac551c9cf643c0262d60f1b84abeec81
 nopie=yes
 python_version=3
 
