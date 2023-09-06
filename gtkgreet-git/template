@@ -1,0 +1,19 @@
+# Template file for 'gtkgreet-git'
+pkgname=gtkgreet-git
+version=0.7.20230905
+revision=1
+build_style=meson
+configure_args="-Dlayershell=disabled"
+hostmakedepends="pkgconf scdoc git"
+makedepends="gtk+3-devel json-c-devel"
+depends="greetd"
+short_desc="GTK based greeter for greetd"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="GPL-3.0-or-later"
+homepage="https://git.sr.ht/~kennylevinsen/gtkgreet"
+
+do_fetch() {
+	git clone https://git.sr.ht/\~kennylevinsen/gtkgreet ${wrksrc} --depth 1
+	cd ${wrksrc}
+	git checkout master
+}
