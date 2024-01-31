@@ -1,6 +1,6 @@
 # Template file for 'seamonkey'
 pkgname=seamonkey
-version=2.53.18
+version=2.53.18.1
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -9,8 +9,8 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="MPL-2.0, GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://www.seamonkey-project.org/"
 changelog="https://www.seamonkey-project.org/releases/seamonkey${version}/"
-distfiles="${MOZILLA_SITE}/seamonkey/releases/${version}/linux-x86_64/en-US/seamonkey-${version}.en-US.linux-x86_64.tar.bz2"
-checksum=22a920c769ff20d56a3f65c50d071c8dae282cf27341dcec962de02f08b072d2
+distfiles="https://archive.seamonkey-project.org/releases/${version}/linux-x86_64/en-US/seamonkey-${version}.en-US.linux-x86_64.tar.bz2"
+checksum=f839c09540bb726597097a9f1b3bead8b3d94a97ac35750da18ef44f82057254
 nopie=yes
 
 do_install() {
