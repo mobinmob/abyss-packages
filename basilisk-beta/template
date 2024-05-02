@@ -1,0 +1,25 @@
+# Template file for 'basilisk-beta'
+pkgname=basilisk-beta
+version=2024.02.03
+revision=1
+archs="x86_64"
+short_desc="XUL-based web-browser built on top of the Unified XUL Platform (UXP)"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="MPL-2.0"
+homepage="https://www.basilisk-browser.org/"
+distfiles="https://archive.basilisk-browser.org/${version}/linux/x86_64/gtk3/basilisk-20240203205403.linux-x86_64-gtk3.tar.xz"
+checksum=5a0aa97524e5e837b43df339ee90329b484bd3e190666a56090fc50dd64b1c6a
+
+do_install() {
+	vmkdir opt/basilisk-beta
+	vcopy "*" opt/basilisk-beta
+	# Create symlink in path
+	vmkdir usr/bin
+	ln -s /opt/basilisk-beta/basilisk "${DESTDIR}/usr/bin/basilisk"
+	# Copy icon and .desktop file
+	vmkdir usr/share/pixmaps
+	vinstall "${DESTDIR}/opt/basilisk-beta/browser/icons/mozicon128.png" 644 \
+usr/share/pixmaps/ basilisk-beta.png
+	vmkdir usr/share/applications
+	vinstall "${FILESDIR}/basilisk-beta.desktop" 644 usr/share/applications/
+}
