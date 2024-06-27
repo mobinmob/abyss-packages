@@ -1,10 +1,9 @@
 # Template file for 'tixati'
 pkgname=tixati
-version=3.24
+version=3.25
 revision=1
 _upstrrev=1
 archs="x86_64"
-wrksrc="tixati-${version}-${_upstrrev}.x86_64.manualinstall"
 short_desc="Fast bitorrent client"
 maintainer="mobinmob <mobinmob@disroot.org>"
 license="custom:Proprietary" #no licence file for vlicense
