@@ -1,6 +1,6 @@
 # Template file for 'quickemu'
 pkgname=quickemu
-version=4.9.2
+version=4.9.6
 revision=1
 depends="bash cdrtools coreutils grep jq procps-ng python3 qemu sed socat spice-gtk swtpm usbutils util-linux wget xdg-user-dirs xrandr zsync"
 short_desc="Quickly create and run optimised virtual machines"
@@ -8,14 +8,12 @@ maintainer="zenobit <zen@osowoso.xyz>"
 license="MIT"
 homepage="https://github.com/quickemu-project/quickemu"
 distfiles="https://github.com/quickemu-project/quickemu/archive/refs/tags/${version}.tar.gz"
-# Temporary change mirror to my repo with quickfzf added. Will see if will be merged to original project...
-# distfiles="https://github.com/oSoWoSo/quickemu/archive/refs/tags/${version}.tar.gz"
-checksum=fa5e2e5112deb836c0ab6035ab0aaabd1465b13e945d4a49dc975b94f1b01233
+checksum=796a047b0bfabb91eb143e5422ff74f5d2812f47120ed6b34eaf82bbdfe3e2a3
 
 do_install() {
 	vbin quickemu
 	vbin quickget
-#	vbin quickfzf
-	vbin macrecovery
+	vbin quickreport
+	vbin chunkcheck
 	vlicense LICENSE
 }
