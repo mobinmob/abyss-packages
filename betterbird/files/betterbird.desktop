@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Betterbird
+GenericName=Mail Client
+Exec=/opt/betterbird/betterbird %u
+Icon=betterbird
+Terminal=false
+Type=Application
+MimeType=message/rfc822;x-scheme-handler/mailto;
+StartupNotify=true
+Categories=Network;Email;
