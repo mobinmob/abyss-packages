@@ -2,7 +2,7 @@
 # Heavily based on the AUR (PKGBUILD+extra files)
 pkgname=softmaker-freeoffice-2024
 version=1218
-revision=1
+revision=2
 archs="x86_64"
 create_wrksrc=yes
 short_desc="Free alternative to MS Office" #Freeware, restrictions apply

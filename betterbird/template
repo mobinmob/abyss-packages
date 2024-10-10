@@ -1,0 +1,31 @@
+# Template file for 'betterbird'
+pkgname=betterbird
+version=115.16.0
+revision=1
+archs="x86_64"
+short_desc="Fine-tuned version of Mozilla Thunderbird"
+maintainer="mobinmob <mobinmob@disroot.org>"
+license="GPL-3.0-or-later"
+homepage="https://betterbird.eu/"
+changelog="https://betterbird.eu/releasenotes/index.html"
+distfiles="https://www.betterbird.eu/downloads/LinuxArchive/betterbird-${version}-bb33.en-US.linux-x86_64.tar.bz2"
+checksum=86a13d91f31e38ca7f502dc97b5c3736414c2089553753ec764bce785f020bf8
+nopie=yes
+
+do_install() {
+	vmkdir opt/betterbird
+	vcopy * opt/betterbird
+
+	# Copy .desktop file
+	vmkdir usr/share/applications
+	vinstall ${FILESDIR}/betterbird.desktop 644 usr/share/applications/
+
+	# Copy icon
+	vmkdir usr/share/icons
+	vinstall "${FILESDIR}"/betterbird.png  644 usr/share/icons/
+
+	# Create a symlink in /usr/bin/
+	vmkdir usr/bin
+	ln -s /opt/betterbird/betterbird ${DESTDIR}/usr/bin/betterbird
+}
+
