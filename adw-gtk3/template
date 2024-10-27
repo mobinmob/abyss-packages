@@ -1,0 +1,13 @@
+# Template file for 'adw-gtk3'
+pkgname=adw-gtk3
+version=5.5
+revision=1
+build_style=meson
+hostmakedepends="sassc"
+depends="gtk-engine-murrine gnome-themes-extra"
+short_desc="The theme from libadwaita ported to GTK-3 "
+maintainer="bitterhalt <bthalt@disroot.org>"
+license="LGPL-2.1-only"
+homepage="https://github.com/lassekongo83/adw-gtk3"
+distfiles="https://github.com/lassekongo83/adw-gtk3/archive/v${version}.tar.gz"
+checksum=02433c9ef67267776e0a4c822e28b6810063a68c1ecf2f17f0936a9c45a20b9b
