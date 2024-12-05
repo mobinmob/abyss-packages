@@ -1,8 +1,8 @@
 # Template file for 'brave-browser'
 # Repackages the official rpm package.
 pkgname=brave-browser
-version=1.73.91
-revision=2
+version=1.73.97
+revision=1
 archs="x86_64"
 create_wrksrc=yes
 hostmakedepends="rpmextract"
