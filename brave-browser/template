@@ -12,7 +12,7 @@ license="MPL-2.0"
 homepage="https://www.brave.com/"
 changelog="https://brave.com/latest/"
 distfiles="https://github.com/brave/brave-browser/releases/download/v${version}/brave-browser-${version}-1.x86_64.rpm"
-checksum=327c254083703c96b221efd3f83441b5f9d3286ab8692cbcb76df9472c8e13f0
+checksum=1ddb07207acb29e0281fb9ff10d402cd5e43a0970e0bc2c0bb3d9973234c0a3f
 
 do_install() {
 	# Remove cron job
