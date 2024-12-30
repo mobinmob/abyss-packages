@@ -1,19 +1,25 @@
 # Template file for 'quickemu'
 pkgname=quickemu
-version=4.9.6
+version=4.9.7
 revision=1
 depends="bash cdrtools coreutils grep jq procps-ng python3 qemu sed socat spice-gtk swtpm usbutils util-linux wget xdg-user-dirs xrandr zsync"
 short_desc="Quickly create and run optimised virtual machines"
-maintainer="zenobit <zen@osowoso.xyz>"
+maintainer="zenobit <zenobit@disroot.org>"
 license="MIT"
 homepage="https://github.com/quickemu-project/quickemu"
 distfiles="https://github.com/quickemu-project/quickemu/archive/refs/tags/${version}.tar.gz"
-checksum=796a047b0bfabb91eb143e5422ff74f5d2812f47120ed6b34eaf82bbdfe3e2a3
+checksum=38a93301a2b233bc458c62d1228d310a9c29c63c10d008c2905029ca66188606
 
 do_install() {
 	vbin quickemu
 	vbin quickget
 	vbin quickreport
 	vbin chunkcheck
+}
+
+post_install() {
+	vman docs/quickget.1 /usr/share/man/man1/quickget.1
+	vman docs/quickemu.1 /usr/share/man/man1/quickemu.1
+	vman docs/quickemu_conf.5 /usr/share/man/man5/quickemu_conf.5
 	vlicense LICENSE
 }
