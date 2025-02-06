@@ -1,6 +1,6 @@
 # Template file for 'vesktop'
 pkgname=vesktop
-version=1.5.3
+version=1.5.5
 revision=1
 archs="x86_64"
 hostmakedepends="tar xz"
@@ -9,7 +9,7 @@ maintainer="bitterhalt <bthalt@disroot.org>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/Vencord/Vesktop"
 distfiles="https://github.com/Vencord/Vesktop/releases/download/v${version}/vesktop_${version}_amd64.deb"
-checksum=cc7109e74a328e43f922f623aa82eafd8322967bc3fb14e467181cd12ae44b7e
+checksum=77e22dbba3d305361363be5d6aef53a47fd4ba5f53a4a9aa28e98a2b6e988445
 
 do_extract() {
 	ar x ${XBPS_SRCDISTDIR}/${pkgname}-${version}/vesktop_${version}_amd64.deb
