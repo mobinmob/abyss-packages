@@ -1,6 +1,6 @@
 # Template file for 'waterfox'
 pkgname=waterfox
-version=6.5.1
+version=6.5.4
 revision=1
 archs="x86_64"
 short_desc="Indie web browser"
@@ -9,7 +9,7 @@ license="MPL-2.0"
 homepage="https://www.waterfox.net/"
 changelog="https://www.waterfox.net/docs/releases/G${version}/?update"
 distfiles="https://cdn1.waterfox.net/waterfox/releases/${version}/Linux_x86_64/waterfox-${version}.tar.bz2"
-checksum=df38abf899b6abcf214045096bf5520e741e938b77e9c52b11a6f268a2c7650d
+checksum=d73a14315199a88d91b42b6d7f8dd6d427962d8a10d23c6717ac749f42292d0d
 nopie=yes
 
 
