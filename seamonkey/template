@@ -1,6 +1,6 @@
 # Template file for 'seamonkey'
 pkgname=seamonkey
-version=2.53.19
+version=2.53.20
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -10,7 +10,7 @@ license="MPL-2.0, GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://www.seamonkey-project.org/"
 changelog="https://www.seamonkey-project.org/releases/seamonkey${version}/"
 distfiles="https://archive.seamonkey-project.org/releases/${version}/linux-x86_64/en-US/seamonkey-${version}.en-US.linux-x86_64.tar.bz2"
-checksum=0cb68079ce0a236f069ed63f4d8772d94f0b5e09d48c4707c6161a10cdae4310
+checksum=d02d1e9409a2c3b864c6f6e96436da17aafef5cd75131e08c9e93f2e5276638c
 nopie=yes
 
 do_install() {
