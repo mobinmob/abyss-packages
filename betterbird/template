@@ -1,6 +1,6 @@
 # Template file for 'betterbird'
 pkgname=betterbird
-version=115.17.0
+version=128.7.0esr
 revision=1
 archs="x86_64"
 short_desc="Fine-tuned version of Mozilla Thunderbird"
@@ -8,8 +8,8 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="GPL-3.0-or-later"
 homepage="https://betterbird.eu/"
 changelog="https://betterbird.eu/releasenotes/index.html"
-distfiles="https://www.betterbird.eu/downloads/LinuxArchive/betterbird-${version}-bb35.en-US.linux-x86_64.tar.bz2"
-checksum=ce35167156b4d0389874be4bc26b63fb059fade57926f6f0b89300b288cdd34c
+distfiles="https://www.betterbird.eu/downloads/LinuxArchive/betterbird-${version}-bb22.en-US.linux-x86_64.tar.bz2"
+checksum=b8b73ef4a644757b034ef624cff1b3e5ba23cb6b6160e80446c3b7159819da5e
 nopie=yes
 
 do_install() {
