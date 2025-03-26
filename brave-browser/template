@@ -1,7 +1,7 @@
 # Template file for 'brave-browser'
 # Repackages the official rpm package.
 pkgname=brave-browser
-version=1.76.81
+version=1.76.82
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -12,7 +12,7 @@ license="MPL-2.0"
 homepage="https://www.brave.com/"
 changelog="https://brave.com/latest/"
 distfiles="https://github.com/brave/brave-browser/releases/download/v${version}/brave-browser-${version}-1.x86_64.rpm"
-checksum=a18e4ad40e90c444b73f32ee24f4e70726e59f90b9286ccf58f52fbb11ecaba3
+checksum=19bafb01c0ea6d864e24592e337a5c41d4f1bc41f31810646d8dea7d89a1e96e
 
 do_install() {
 	# Remove cron job
