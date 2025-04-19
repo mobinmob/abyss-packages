@@ -3,24 +3,24 @@ pkgname=vesktop
 version=1.5.5
 revision=1
 archs="x86_64"
-hostmakedepends="tar xz"
+hostmakedepends="tar"
 short_desc="Custom Discord client for better performance"
 maintainer="bitterhalt <bthalt@disroot.org>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/Vencord/Vesktop"
-distfiles="https://github.com/Vencord/Vesktop/releases/download/v${version}/vesktop_${version}_amd64.deb"
-checksum=77e22dbba3d305361363be5d6aef53a47fd4ba5f53a4a9aa28e98a2b6e988445
-
-do_extract() {
-	ar x ${XBPS_SRCDISTDIR}/${pkgname}-${version}/vesktop_${version}_amd64.deb
-		tar xf data.tar.xz -C ${wrksrc}
-}
+distfiles="https://github.com/Vencord/Vesktop/releases/download/v${version}/vesktop-${version}.tar.gz"
+checksum=6aa4cbf09e18964988855ad19d0b861a88324b7f6ad1b30ac50b6e02c78c57ad
 
 do_install() {
-	vmkdir /usr/share
-		vmkdir /opt/Vesktop
+	install -dm755 "${DESTDIR}/opt/vesktop" "${DESTDIR}/usr/bin" "${DESTDIR}/usr/share/applications" "${DESTDIR}/usr/share/icons/hicolor/1024x1024" "${DESTDIR}/usr/share/licenses/${pkgname}"
+		tar -xvf ${XBPS_SRCDISTDIR}/${pkgname}-${version}/${pkgname}-${version}.tar.gz -C "${DESTDIR}/opt/vesktop" --strip-components=1
 
-# Copy the files and directories
-		vcopy usr/share/* /usr/share/
-											vcopy opt/Vesktop/* /opt/Vesktop/
-											}
+# executable
+		ln -sf /opt/vesktop/vesktop ${DESTDIR}/usr/bin/vesktop
+
+# icon
+	vinstall "${FILESDIR}/vesktop.png" 644 usr/share/icons/hicolor/1024x1024/apps/
+
+# desktop file
+		vinstall "${FILESDIR}/vesktop.desktop" 644 usr/share/applications/
+}
