@@ -1,6 +1,6 @@
 # Template file for 'vesktop'
 pkgname=vesktop
-version=1.5.5
+version=1.5.6
 revision=1
 archs="x86_64"
 hostmakedepends="tar"
@@ -9,10 +9,10 @@ maintainer="bitterhalt <bthalt@disroot.org>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/Vencord/Vesktop"
 distfiles="https://github.com/Vencord/Vesktop/releases/download/v${version}/vesktop-${version}.tar.gz"
-checksum=6aa4cbf09e18964988855ad19d0b861a88324b7f6ad1b30ac50b6e02c78c57ad
+checksum=8105cbb5fb4b9280844256f54da714db8bc3257114e1c82767b058ccdfd1d361
 
 do_install() {
-	install -dm755 "${DESTDIR}/opt/vesktop" "${DESTDIR}/usr/bin" "${DESTDIR}/usr/share/applications" "${DESTDIR}/usr/share/icons/hicolor/1024x1024" "${DESTDIR}/usr/share/licenses/${pkgname}"
+	install -dm755 "${DESTDIR}/opt/vesktop" "${DESTDIR}/usr/bin" "${DESTDIR}/usr/share/applications" "${DESTDIR}/usr/share/icons/hicolor/1024x1024"
 		tar -xvf ${XBPS_SRCDISTDIR}/${pkgname}-${version}/${pkgname}-${version}.tar.gz -C "${DESTDIR}/opt/vesktop" --strip-components=1
 
 # executable
