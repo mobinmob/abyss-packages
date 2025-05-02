@@ -1,6 +1,6 @@
 # Template file for 'adw-gtk3'
 pkgname=adw-gtk3
-version=5.10
+version=6.0
 revision=1
 build_style=meson
 hostmakedepends="sassc"
@@ -10,4 +10,4 @@ maintainer="bitterhalt <bthalt@disroot.org>"
 license="LGPL-2.1-only"
 homepage="https://github.com/lassekongo83/adw-gtk3"
 distfiles="https://github.com/lassekongo83/adw-gtk3/archive/v${version}.tar.gz"
-checksum=1439d432248a661ccc513a90ae1e5e9e65cac69842cbc090f09ec4f994c8b749
+checksum=3e7f0498f9e0829912e1adcdee3a956d0d7b35fdd1545d56195d7b361511bd6c
