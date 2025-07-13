@@ -1,0 +1,39 @@
+# Template file for 'ydotool'
+pkgname=ydotool
+version=1.0.4
+revision=1
+build_style=gnu-makefile
+hostmakedepends="cmake ninja pkg-config scdoc"
+makedepends="libevdev-devel"
+short_desc="Generic command-line automation tool (no X!)"
+maintainer="bob.hepple@gmail.com"
+license="AGPL-3.0-or-later"
+homepage="https://github.com/ReimuNotMoe/ydotool"
+distfiles="https://github.com/ReimuNotMoe/ydotool/archive/refs/tags/v${version}.tar.gz"
+checksum=ba075a43aa6ead51940e892ecffa4d0b8b40c241e4e2bc4bd9bd26b61fde23bd
+
+do_build() {
+	cmake -S . -B build -G Ninja \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_POLICY_VERSION_MINIMUM=3.5
+	ninja -C build
+}
+
+do_install() {
+	DESTDIR="$DESTDIR" ninja -C build install
+	
+	# Remove systemd service file (Void uses runit)
+	rm -rf "${DESTDIR}/usr/lib/systemd"
+	
+	# Create runit service directory
+	vmkdir etc/sv/ydotool
+	
+	# Create run script for runit service
+	cat > "${DESTDIR}/etc/sv/ydotool/run" << 'EOF'
+#!/bin/sh
+exec 2>&1
+exec /usr/bin/ydotoold --socket-path=/tmp/.ydotool_socket --socket-perm=0666
+EOF
+	chmod +x "${DESTDIR}/etc/sv/ydotool/run"
+}
