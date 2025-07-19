@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=mythTV frontend
+Comment=Record, playback and watch TV.
+Icon=mythfrontend
+Exec=mythfrontend
+Terminal=false
+Type=Application
+X-Desktop-File-Install-Version=0.26
+Categories=Application;AudioVideo;

@@ -1,0 +1,4 @@
+#!/bin/sh
+exec 2>&1
+export HOME=/var/lib/mythtv
+exec chpst -u mythtv:mythtv mythbackend
