@@ -1,0 +1,188 @@
+# Template file for 'mythtv'
+# crib: https://github.com/rpmfusion/mythtv/blob/master/mythtv.spec
+# hdhomerun - build and put an entry in common/shlibs:
+# libhdhomerun.so hdhomerun-20230323_1
+# or add --without-hdhomerun in configure_args
+
+# todo:
+# check dependencies are minimal
+# logging
+# plugins - music, videos etc
+# NB tmdb3 is not supported
+
+# post install:
+# mythtv-backend needs a db server - usually mariadb:
+# xbps-install mariadb
+# for some reason I had to change the password on mariadb:
+## sv stop mariadb
+## sudo mysqld_safe --skip-grant-tables --skip-networking &
+## mysql -u root
+## FLUSH PRIVILEGES;
+## ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
+## kill $!
+## start mariadb
+
+# mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p mysql
+# then follow: https://www.mythtv.org/wiki/Installing_MythTV_on_Fedora#Setup_MariaDB
+# (except mysql_secure_installation didn't work)
+# http://aloo:6544/dashboard/status
+
+pkgname=mythtv
+_basever=35.0
+#_gitrev=d941a6d21ac47a8d4b56c94f5afd60720e2ab238
+version=35.0
+revision=1
+build_style=configure
+short_desc="Homebrew PVR project"
+maintainer="Bob Hepple <bob.hepple@gmail.com>"
+license='GPL-2.0-only'
+homepage="https://www.mythtv.org/"
+#distfiles="https://github.com/MythTV/mythtv/archive/${_gitrev}.tar.gz"
+distfiles="https://github.com/MythTV/mythtv/archive/refs/heads/fixes/35.tar.gz"
+python_version=3
+depends="exiv2 fftw lame libass libavc1394 libbluray libiec61883 libpulseaudio libsamplerate libva libvdpau libvpx libxml2 libzip lzo qt5-script soundtouch taglib x264 x265 qt5-plugin-mysql hdhomerun"
+makedepends="git qt5-qmake pkg-config help2man libcdio taglib-devel soundtouch-devel libbluray-devel libzip-devel libmariadbclient-devel libsamplerate-devel libxml2-devel perl-XML-Simple python3-future python3-lxml python3-mysqlclient python3-requests python-setuptools python3-simplejson yasm x264-devel x265-devel libvpx-devel qt5-plugin-mysql qt5-webkit-devel qt5-script-devel qt5-devel pulseaudio-qt-devel libXrandr-devel lzo-devel freetype-devel hdhomerun-devel"
+checksum=08578630b5f6c2229842474dd2b105fabcbf51450ce01dc2095ca42fc0c84978
+subpackages="mythtv-libs mythtv-common mythtv-docs mythtv-backend mythtv-base-themes mythtv-frontend mythtv-setup"
+
+configure_args=" --qmake=/usr/bin/qmake --disable-firewire --disable-vbox --disable-ceton --disable-satip --disable-asi --disable-nvdec --disable-systemd_notify --disable-systemd_journal --disable-altivec --disable-distcc --disable-audio-jack --disable-lirc --disable-joystick-menu --enable-libmp3lame --enable-libvpx --enable-libx264 --enable-libx265 --enable-vaapi"
+
+do_configure() {
+    cd mythtv
+    ./configure --prefix=/usr --bindir=/usr/bin --mandir=/usr/share/man $configure_args
+}
+
+do_build() {
+    cd mythtv
+    make -j2
+}
+
+do_install() {
+    cd mythtv
+    make -j2 INSTALL_ROOT="${DESTDIR}" install
+    install -Dm644 $FILESDIR/*.desktop -t $DESTDIR/usr/share/applications
+    install -Dm644 $FILESDIR/*.png -t $DESTDIR/usr/share/pixmaps
+    mkdir -p $DESTDIR/etc/mythtv
+    echo "# to be filled in by mythtv-setup" > $DESTDIR/etc/mythtv/config.xml
+    install -Dm755 contrib/maintenance/optimize_mythdb.pl $DESTDIR/usr/bin/optimize_mythdb
+    # not sure who creates this:
+    rm -f $DESTDIR/usr/lib64
+}
+
+# The main mythtv meta package - UNTESTED!
+# This implicitly defines the main package and its dependencies.
+# This should come *before* any subpackage definitions to ensure it's processed correctly.
+mythtv_package() {
+    short_desc+=" - Complete MythTV installation (frontend and backend)"
+    # Add frontend and backend to the main package's dependencies
+    depends="${sourcepkg}-frontend>=${version}_${revision} ${sourcepkg}-backend>=${version}_${revision} ${sourcepkg}-docs>=${version}_${revision}"
+}
+
+mythtv-backend_package() {
+    short_desc+=' - Server component of mythtv (a DVR)'
+    depends="${sourcepkg}-common>=${version}_${revision} ${sourcepkg}-libs>=${version}_${revision} ${sourcepkg}-setup>=${version}_${revision}"
+    make_dirs="/var/cache/mythtv 0755 mythtv mythtv
+/var/lib/mythtv 0755 mythtv mythtv"
+    
+    pkg_install() {
+        vmove usr/bin/mythbackend
+        vmove usr/bin/mythexternrecorder
+        vmove usr/bin/mythfilerecorder
+        vmove usr/bin/mythfilldatabase
+        vmove usr/bin/mythjobqueue
+        vmove usr/bin/mythmediaserver
+        vmove usr/bin/mythreplex
+        vmove usr/bin/optimize_mythdb
+        vmove usr/share/mythtv/externrecorder
+        vmove usr/share/mythtv/backend-config
+        vmove usr/share/mythtv/html
+        vsv mythbackend
+    }
+}
+
+mythtv-base-themes_package() {
+    short_desc+=' - Core user interface themes for mythtv'
+    pkg_install() {
+        vmove usr/share/mythtv/themes
+    }
+}
+
+mythtv-common_package() {
+    short_desc+=" - Common components needed by multiple other MythTV components"
+    depends="${sourcepkg}-libs>=${version}_${revision} ${sourcepkg}-libs>=${version}_${revision}"
+
+    system_accounts="mythtv"
+    mythtv_homedir="/var/lib/mythtv"
+    mythtv_shell="/sbin/nologin"
+    mythtv_desc="mythbackend user"
+    mythtv_groups="audio,video"
+
+    make_dirs="/usr/share/mythtv/hardwareprofile 0755 root root"
+    pkg_install() {
+        vmove usr/bin/mythccextractor
+        vmove usr/bin/mythcommflag
+        vmove usr/bin/mythmetadatalookup
+        vmove usr/bin/mythpreviewgen
+        vmove usr/bin/mythtranscode
+        vmove usr/bin/mythutil
+        vmove usr/share/mythtv/locales
+        vmove "usr/share/mythtv/*.pl"
+        vmove "usr/share/mythtv/*.xml"
+        vmove etc/mythtv/config.xml
+    }
+}
+
+mythtv-docs_package() {
+    short_desc+=" - documentation"
+    depends="${sourcepkg}-common>=${version}_${revision}"
+    pkg_install() {
+        install -Dm644 -t $PKGDESTDIR/usr/share/docs/mythtv-doc mythtv/README* mythtv/AUTHORS mythtv/keybindings.txt
+        # FIXME: must be a better way to do this:
+        cp -rp mythtv/database mythtv/contrib $PKGDESTDIR/usr/share/docs/mythtv-doc/
+    }
+}
+
+mythtv-frontend_package() {
+    short_desc+=" - frontend programs"
+    depends="${sourcepkg}-common>=${version}_${revision} ${sourcepkg}-libs>=${version}_${revision} ${sourcepkg}-base-themes>=${version}_${revision} qt5-plugin-mysql"
+    make_dirs="/var/lib/mythvideo 0755 mythtv mythtv"
+    pkg_install() {
+        vmove usr/bin/mythfrontend
+        vmove usr/bin/mythavtest
+        vmove usr/bin/mythlcdserver
+        vmove usr/bin/mythscreenwizard
+        vmove usr/bin/mythshutdown
+        vmove usr/bin/mythwelcome
+        vmove usr/share/applications/mythfrontend.desktop
+        vmove usr/share/pixmaps/mythfrontend.png
+        vmove usr/share/mythtv/metadata
+        vmove usr/share/mythtv/i18n
+        vmove usr/share/mythtv/fonts
+    }
+}
+
+mythtv-libs_package() {
+    short_desc+=" - Common library code for MythTV and add-on modules (development)"
+    pkg_install() {
+        vmove "usr/lib/*.so*"
+    }
+}
+
+mythtv-setup_package() {
+    short_desc+=' - Setup the mythtv backend'
+    depends="${sourcepkg}-backend>=${version}_${revision} ${sourcepkg}-docs>=${version}_${revision} ${sourcepkg}-base-themes>=${version}_${revision}"
+    pkg_install() {
+        vmove usr/bin/mythtv-setup
+        vmove usr/share/applications/mythtv-setup.desktop
+        vmove usr/share/pixmaps/mythtv-setup.png
+        # this is the last sub-package to be built so we can now prepare
+        # for the main package - which is to be a stub and contain nothing much
+        rm -rf $DESTDIR/usr
+        install -Dm644 LICENSE -t $DESTDIR/usr/share/licenses/mythtv
+    }
+}
+
+# Local Variables:
+# no-syntax-check: t
+# mode: shell-script
+# End:
