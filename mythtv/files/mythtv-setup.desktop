@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=mythTV setup
+Comment=Setup for mythTV.
+Icon=mythtv-setup
+Exec=mythtv-setup
+Terminal=false
+Type=Application
+X-Desktop-File-Install-Version=0.26
+Categories=Application;AudioVideo;

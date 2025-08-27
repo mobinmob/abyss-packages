@@ -1,0 +1,2 @@
+#!/bin/sh
+exec vlogger -t mythbackend -p daemon
