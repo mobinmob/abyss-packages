@@ -22,18 +22,10 @@ do_build() {
 
 do_install() {
 	DESTDIR="$DESTDIR" ninja -C build install
-	
+
 	# Remove systemd service file (Void uses runit)
 	rm -rf "${DESTDIR}/usr/lib/systemd"
-	
-	# Create runit service directory
-	vmkdir etc/sv/ydotool
-	
-	# Create run script for runit service
-	cat > "${DESTDIR}/etc/sv/ydotool/run" << 'EOF'
-#!/bin/sh
-exec 2>&1
-exec /usr/bin/ydotoold --socket-path=/tmp/.ydotool_socket --socket-perm=0666
-EOF
-	chmod +x "${DESTDIR}/etc/sv/ydotool/run"
+
+	# Create runit service
+	vsv ydotool
 }
