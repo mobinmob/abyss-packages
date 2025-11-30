@@ -1,0 +1,50 @@
+# Template for gpu-screen-recorder
+
+pkgname=gpu-screen-recorder
+version=r1187.7d4a406
+revision=1
+archs="x86_64"
+
+short_desc="A shadowplay-like screen recorder for Linux. The fastest screen recorder for Linux"
+maintainer="Lysec <itslysec@gmail.com>"
+homepage="https://git.dec05eba.com/gpu-screen-recorder"
+license="GPL-3.0-only"
+
+# Runtime dependencies
+depends="ffmpeg libglvnd libX11 libXcomposite libXrandr libXfixes libXdamage pulseaudio libva libdrm libcap wayland libpipewire dbus"
+
+# Build-time dependencies
+hostmakedepends="meson ninja pkg-config vulkan-loader-devel glib-devel ffmpeg libX11-devel libXcomposite-devel libXrandr-devel libXfixes-devel libXdamage-devel pulseaudio-devel libva-devel libdrm-devel wayland-devel pipewire-devel dbus-devel desktop-file-utils ffmpeg-devel libcap-devel git"
+
+# Optional features
+optdepends=(
+    'nvidia-utils: Required to record your screen on NVIDIA'
+    'libxnvctrl: Required for -oc overclock option on NVIDIA'
+    'mesa: Required to record on AMD/Intel GPUs'
+    'libva-mesa-driver: Required to record on AMD GPUs'
+    'libva-intel-driver: Required to record on Intel G45/HD Graphics'
+    'intel-media-driver: Required for Broadwell+ Intel iGPUs or Intel Arc'
+    'linux-firmware-intel: Required for Intel Skylake+ iGPUs'
+)
+
+# Source tarball snapshot
+distfiles="https://dec05eba.com/snapshot/gpu-screen-recorder.git.${version}.tar.gz"
+checksum=5c6532d83f31b2db69654ddf501933830f235ff15bb225564e2aa0ea2fff5228
+
+install="${pkgname}.install"
+
+do_build() {
+    cd "${wrksrc}"
+    meson setup build \
+        --prefix=/usr \
+        --libdir=/usr/lib \
+        --buildtype=release \
+        -Dsystemd=true \
+        -Dstrip=true
+    meson compile -C build
+}
+
+do_install() {
+    cd "${wrksrc}"
+    meson install -C build --destdir="${DESTDIR}"
+}
