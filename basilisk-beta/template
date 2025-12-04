@@ -1,15 +1,15 @@
 # Template file for 'basilisk-beta'
 pkgname=basilisk-beta
-version=2025.02.22
+version=2025.10.10
 revision=1
 archs="x86_64"
 short_desc="XUL-based web-browser built on top of the Unified XUL Platform (UXP)"
 maintainer="mobinmob <mobinmob@disroot.org>"
 license="MPL-2.0"
 homepage="https://www.basilisk-browser.org/"
-_tarver="20250220145130"
+_tarver="20251009122226"
 distfiles="https://dl.basilisk-browser.org/basilisk-${_tarver}.linux-x86_64-gtk3.tar.xz"
-checksum=3c68e10aa640bf75c9f1a5bb66b42ed1d99255ac7f9cf016e15e6ff46d26cb3c
+checksum=6f52a2b256428c65d7d0c90e8cd25c8b9521e363f8bb0c189eda5d4d3c21c802
 
 do_install() {
 	vmkdir opt/basilisk-beta
