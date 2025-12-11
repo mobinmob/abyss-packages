@@ -1,7 +1,7 @@
 # Template file for 'adw-gtk3'
 pkgname=adw-gtk3
-version=6.2
-revision=2
+version=6.4
+revision=1
 build_style=meson
 hostmakedepends="nodejs"
 depends="gtk-engine-murrine gnome-themes-extra"
@@ -10,7 +10,7 @@ maintainer="bitterhalt <bthalt@disroot.org>"
 license="LGPL-2.1-only"
 homepage="https://github.com/lassekongo83/adw-gtk3"
 distfiles="https://github.com/lassekongo83/adw-gtk3/archive/v${version}.tar.gz"
-checksum=ef554d3d0e7ee65833150b9af4fb2efeadd666c739d3de7b2e26ecaeb9bb026a
+checksum=e96fc857360485689159adb0d5c9d2418cbf4cd38e79599d39e28ec0c32c24c4
 
 pre_configure() {
 	npm i sass
