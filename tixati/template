@@ -1,6 +1,6 @@
 # Template file for 'tixati'
 pkgname=tixati
-version=3.39
+version=3.42
 revision=1
 _upstrrev=1
 archs="x86_64"
@@ -10,7 +10,7 @@ license="custom:Proprietary" #no licence file for vlicense
 homepage="https://www.tixati.com/"
 changelog="https://www.tixati.com/news/"
 distfiles="https://download.tixati.com/tixati-${version}-${_upstrrev}.x86_64.manualinstall.tar.gz"
-checksum=56b44c64d3f746488b0e54bf56c1554b8ab5a477ab8eb749064d9f03ea308768
+checksum=b6e7a3a104375bd3f2bc004f89e89895edd0632d8928da83bd1968ad2c4fb877
 nopie=yes
 
 do_install() {
