@@ -1,14 +1,15 @@
 # Template file for 'quickemu'
 pkgname=quickemu
-version=4.9.7
+version=4.9.8
 revision=1
-depends="bash cdrtools coreutils grep jq procps-ng python3 qemu sed socat spice-gtk swtpm usbutils util-linux wget xdg-user-dirs xrandr zsync"
+depends="bash cdrtools coreutils grep jq procps-ng python3 qemu sed socat
+ spice-gtk swtpm usbutils util-linux wget xdg-user-dirs xrandr zsync"
 short_desc="Quickly create and run optimised virtual machines"
 maintainer="zenobit <zenobit@disroot.org>"
 license="MIT"
 homepage="https://github.com/quickemu-project/quickemu"
 distfiles="https://github.com/quickemu-project/quickemu/archive/refs/tags/${version}.tar.gz"
-checksum=38a93301a2b233bc458c62d1228d310a9c29c63c10d008c2905029ca66188606
+checksum=137905e7b0234841fcaa962144c19bb3065571f12ce8e7b8334a243c3c6951f1
 
 do_install() {
 	vbin quickemu
