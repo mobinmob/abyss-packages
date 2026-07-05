@@ -1,7 +1,7 @@
 # Template file for 'softmaker-freeoffice-2024'
 # Heavily based on the AUR (PKGBUILD+extra files)
 pkgname=softmaker-freeoffice-2024
-version=1230
+version=1234
 revision=1
 archs="x86_64"
 create_wrksrc=yes
@@ -10,7 +10,7 @@ maintainer="mobinmob <mobinmob@disroot.org>"
 license="custom:eula" # no vlicense
 homepage="https://www.freeoffice.com/en/"
 distfiles="https://www.softmaker.net/down/softmaker-freeoffice-2024-${version}-amd64.tgz"
-checksum=1e50feac3c15ac150387f163ebae3988d42b18a5a6e46945476d37f00d025b9e
+checksum=ab94147af912c5d87adb664c8706cee381cb268c29834bf0bfd75eee174e5104
 nopie=yes
 replaces=softmaker-freeoffice-2018>=0
 
