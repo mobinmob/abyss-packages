@@ -1,0 +1,25 @@
+pkgname=python-pywalfox
+version=2.7.4
+revision=1
+wrksrc="pywalfox-${version}"
+build_style=python3-module
+hostmakedepends="python3-setuptools"
+depends="python3"
+checkdepends=""
+short_desc="Native app used alongside the Pywalfox browser extension"
+maintainer="Ly-sec <itslysec@gmail.com>"
+license="MPL-2.0"
+homepage="https://github.com/frewacom/pywalfox"
+distfiles="https://files.pythonhosted.org/packages/source/p/pywalfox/pywalfox-${version}.tar.gz"
+checksum=59e73d7e27389574fb801634e03d8471f09bfe062865cad803f68c456680ed66
+
+pre_build() {
+    # Replace <path> in manifest.json with actual site-packages path
+    local site_packages=$(python3 -c "import site; print(site.getsitepackages()[0])")
+    sed -i "s:<path>:${site_packages}/pywalfox/bin/main.sh:" pywalfox/assets/manifest.json
+}
+
+post_install() {
+    # Install the manifest file for native messaging
+    vinstall pywalfox/assets/manifest.json 644 usr/lib/mozilla/native-messaging-hosts pywalfox.json
+}
